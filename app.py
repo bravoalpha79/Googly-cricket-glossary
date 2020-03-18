@@ -12,25 +12,24 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
+alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 @app.route("/")
 def index():
-    letters = "ABCDEFW"
-    return render_template("index.html", letters=letters)
-
+    return render_template('index.html', letters=alphabet)
+    
 
 @app.route("/display_letter/<letter>")
 def display_letter(letter):
     return render_template("letter.html",
                            letter=mongo.db.entries.find({
-                            "letter": letter}))
-
+                            "letter": letter}), letters=alphabet)
 
 @app.route("/display_word/<word>")
 def display_word(word):
     return render_template("word.html",
                            word=mongo.db.entries.find_one({
-                            "term": word}))
+                            "term": word}), letters=alphabet)
 
 
 if __name__ == "__main__":

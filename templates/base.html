@@ -7,9 +7,11 @@
     <title>Googly</title>
 </head>
 <body>
-    {% for letter in letters %}
+<div>
+{% for letter in letters %}
     <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
-    {% endfor %}
+{% endfor %}
+</div>
 
     {% block content %}
     {% endblock %}
