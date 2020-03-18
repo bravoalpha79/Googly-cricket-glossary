@@ -29,7 +29,7 @@ def display_letter(letter):
 @app.route("/display_word/<word>")
 def display_word(word):
     return render_template("word.html",
-                           word=mongo.db.entries.find({
+                           word=mongo.db.entries.find_one({
                             "term": word}))
 
 
