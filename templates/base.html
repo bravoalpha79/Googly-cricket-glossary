@@ -14,9 +14,9 @@
     </ul>
 </div>
 <div>
-{% for letter in letters %}
-    <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
-{% endfor %}
+    {% for letter in letters %}
+        <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
+    {% endfor %}
 </div>
 <br>
 
@@ -24,6 +24,7 @@
     {% endblock %}
 
 <br>
+<!-- Flash messages code snippet copied from https://flask.palletsprojects.com/ -->
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul>
