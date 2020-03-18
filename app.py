@@ -15,8 +15,8 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    letters = "ABCDEF"
-    return render_template("base.html", letters=letters)
+    letters = "ABCDEFW"
+    return render_template("index.html", letters=letters)
 
 
 @app.route("/display_letter/<letter>")
