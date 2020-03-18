@@ -8,10 +8,17 @@
 </head>
 <body>
 <div>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('add_word')}}">New word</a></li>
+    </ul>
+</div>
+<div>
 {% for letter in letters %}
     <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
 {% endfor %}
 </div>
+<br>
 
     {% block content %}
     {% endblock %}

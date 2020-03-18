@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form action="{{url_for('insert_word')}}", method ="POST">
+        <input type="text" id="term" name="term" placeholder="word" />
+        <br>
+        <br>
+        <textarea id="meaning1" name="meaning1" placeholder="meaning 1" cols="40"></textarea>
+        <br>
+        <textarea id="meaning2" name="meaning2" placeholder="meaning 2" cols="40"></textarea>
+        <br>
+        <textarea id="meaning3" name="meaning3" placeholder="meaning 3" cols="40"></textarea>
+        <br>
+        <button type="submit">Add word</button>
+    </form>
+</div>
+{% endblock %}

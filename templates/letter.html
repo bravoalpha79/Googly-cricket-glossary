@@ -4,5 +4,6 @@
     <br>
     {% for word in letter %}
     <a href="{{url_for('display_word', word=word.term)}}">{{word.term.capitalize()}}</a>
+    <br>
     {% endfor %}
 {% endblock %}

@@ -23,13 +23,34 @@ def index():
 def display_letter(letter):
     return render_template("letter.html",
                            letter=mongo.db.entries.find({
-                            "letter": letter}), letters=alphabet)
+                            "letter": letter}).sort("term"), letters=alphabet)
 
 @app.route("/display_word/<word>")
 def display_word(word):
     return render_template("word.html",
                            word=mongo.db.entries.find_one({
                             "term": word}), letters=alphabet)
+
+
+@app.route("/add_word")
+def add_word():
+    return render_template("addword.html", letters=alphabet)
+
+
+@app.route("/insert_word", methods=["GET", "POST"])
+def insert_word():
+    word = request.form["term"]
+    entries = mongo.db.entries
+
+    entries.insert_one(
+    {
+        "term": word,
+        "letter": word[0].upper(),
+        "meanings": [request.form["meaning1"], 
+                     request.form["meaning2"], 
+                     request.form["meaning3"]]
+    })
+    return redirect(url_for("display_word", word=word))
 
 
 if __name__ == "__main__":
