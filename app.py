@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = "Googly"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -41,17 +42,25 @@ def add_word():
 def insert_word():
     word = request.form["term"]
     entries = mongo.db.entries
+    all_entries = mongo.db.entries.find()
+    glossary = [entry["term"] for entry in all_entries]
 
-    entries.insert_one(
-    {
-        "term": word,
-        "letter": word[0].upper(),
-        "meanings": [request.form["meaning1"], 
-                     request.form["meaning2"], 
-                     request.form["meaning3"]]
-    })
-    return redirect(url_for("display_word", word=word))
-
+    if word not in glossary:
+        entries.insert_one(
+        {
+            "term": word,
+            "letter": word[0].upper(),
+            "meanings": [request.form["meaning1"], 
+                        request.form["meaning2"], 
+                        request.form["meaning3"]]
+        })
+        flash("Word successfully added.")
+        return redirect(url_for("display_word", word=word))
+    else:
+        flash(("Entry '{}' already exists.").format(word))
+        return redirect(url_for("add_word"))
+        
+        
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
