@@ -15,7 +15,22 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    return "<h1>Hello Flask!</h1>"
+    letters = "ABCDEF"
+    return render_template("base.html", letters=letters)
+
+
+@app.route("/display_letter/<letter>")
+def display_letter(letter):
+    return render_template("letter.html",
+                           letter=mongo.db.entries.find({
+                            "letter": letter}))
+
+
+@app.route("/display_word/<word>")
+def display_word(word):
+    return render_template("word.html",
+                           word=mongo.db.entries.find({
+                            "term": word}))
 
 
 if __name__ == "__main__":
