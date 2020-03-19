@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style.css" />
     <title>Googly</title>
 </head>
 <body>
@@ -34,6 +35,22 @@
     </ul>
   {% endif %}
 {% endwith %}
+
+<script>
+    function addMeaning() {
+        let meaningList = document.getElementsByClassName("meaning");
+        let newMeaningNum = meaningList.length + 1;
+        let newMeaning = document.createElement("textarea");
+        
+        newMeaning.id = `meaning${newMeaningNum}`;
+        newMeaning.setAttribute("class", "meaning");
+        newMeaning.setAttribute("name", `meaning${newMeaningNum}`);
+        newMeaning.setAttribute("placeholder", `meaning ${newMeaningNum}`);
+        newMeaning.setAttribute("cols", "40");
+
+        document.getElementById("meanings").appendChild(newMeaning);
+    }
+</script>
 
 </body>
 </html>
