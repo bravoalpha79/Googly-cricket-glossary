@@ -43,24 +43,28 @@ def insert_word():
     word = request.form["term"]
     entries = mongo.db.entries
     all_entries = mongo.db.entries.find()
-    glossary = [entry["term"] for entry in all_entries]
+    glossary = [entry["term"].lower() for entry in all_entries]
 
-    if word not in glossary:
+    meanings = []
+
+    for k, v in request.form.items():
+        if k != "term":
+            if v != "":
+                meanings.append(v)
+
+    if word.lower() in glossary:
+        flash(("Entry '{}' already exists.").format(word))
+        return redirect(url_for("add_word"))
+    else:
         entries.insert_one(
         {
             "term": word,
             "letter": word[0].upper(),
-            "meanings": [request.form["meaning1"], 
-                        request.form["meaning2"], 
-                        request.form["meaning3"]]
+            "meanings": meanings
         })
         flash("Word successfully added.")
         return redirect(url_for("display_word", word=word))
-    else:
-        flash(("Entry '{}' already exists.").format(word))
-        return redirect(url_for("add_word"))
-        
-        
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
