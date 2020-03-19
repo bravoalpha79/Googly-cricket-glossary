@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <form action="{{url_for('update_word', word_id=word._id)}}", method ="POST">
+        <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
+        <br>
+        <div id="meanings">
+        {% for meaning in word.meanings %}
+            {% if loop.index == 1 %}
+                <textarea class="meaning" id="meaning{{loop.index}}" name="meaning{{loop.index}}" cols="40" required>{{meaning}}</textarea>
+            {% else %}
+                <textarea class="meaning" id="meaning{{loop.index}}" name="meaning{{loop.index}}" cols="40">{{meaning}}</textarea>
+            {% endif %}
+        {% endfor %}
+         </div>    
+        <br>
+        <button type="submit">Update word</button>
+    </form>
+    <button onclick="addMeaning()">Add another meaning</button>
+</div>
+{% endblock %}
