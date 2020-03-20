@@ -63,7 +63,7 @@ def insert_word():
             "letter": word[0].upper(),
             "meanings": meanings
         })
-        flash("Word successfully added.")
+        flash(("Entry '{}' successfully added.").format(word))
         return redirect(url_for("display_word", word=word))
 
 
@@ -93,6 +93,13 @@ def update_word(word_id):
 
     flash("Word successfully updated.")
     return redirect(url_for("display_word", word=word))
+
+@app.route("/delete_word/<word_id>")
+def delete_word(word_id):
+    entries = mongo.db.entries  
+    entries.delete_one({"_id": ObjectId(word_id)})
+    flash("Entry successfully deleted.")
+    return render_template("addword.html", letters=alphabet)
 
 
 if __name__ == "__main__":
