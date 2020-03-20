@@ -1,3 +1,16 @@
 .meaning {
     display: blocK;
 }
+
+.entry a {
+    height: 1.5em;
+    width: 4.7em;
+    line-height: 1.6em;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+    margin: 0 0.3em;
+}
+
+.modal {
+    width: 30vw;
+}
