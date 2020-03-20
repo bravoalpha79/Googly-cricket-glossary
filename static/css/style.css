@@ -11,6 +11,28 @@
     margin: 0 0.3em;
 }
 
+.add-word button,
+.edit-word button, 
+.add-word a, 
+.edit-word a {
+    height: 1.5em;
+    width: 4.7em;
+    line-height: 1.6em;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+    margin: 1em 0.3em 1em;
+}
+
+#add-meaning {
+    height: 1.5em;
+    width: 10em;
+    line-height: 1.6em;
+    font-size: 0.8em;
+    padding: 0 0.5em;
+    display: block;
+}
+
 .modal {
     width: 30vw;
 }
+

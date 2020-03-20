@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-    <form action="{{url_for('update_word', word_id=word._id)}}", method ="POST">
+<div class="container">
+    <form class="edit-word"action="{{url_for('update_word', word_id=word._id)}}", method ="POST">
         <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
         <br>
         <div id="meanings">
@@ -15,8 +15,9 @@
         {% endfor %}
          </div>    
         <br>
-        <button type="submit">Update word</button>
+        <a id="add-meaning" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add meaning</a>
+        <button class="waves-effect waves-light btn" type="submit">Update</button>
+        <a class="waves-effect waves-light btn grey" href="{{url_for('display_word', word=word.term)}}">Cancel</a>
     </form>
-    <button onclick="addMeaning()">Add another meaning</button>
 </div>
 {% endblock %}
