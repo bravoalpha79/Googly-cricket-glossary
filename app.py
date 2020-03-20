@@ -94,6 +94,7 @@ def update_word(word_id):
     flash("Word successfully updated.")
     return redirect(url_for("display_word", word=word))
 
+
 @app.route("/delete_word/<word_id>")
 def delete_word(word_id):
     entries = mongo.db.entries  
