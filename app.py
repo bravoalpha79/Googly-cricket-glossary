@@ -103,6 +103,37 @@ def delete_word(word_id):
     return render_template("addword.html", letters=alphabet)
 
 
+@app.route("/contribute")
+def contribute():
+    return render_template("contribute.html", letters=alphabet)
+
+
+@app.route("/authenticate_user", methods=["GET", "POST"])
+def authenticate_user():
+    contributors = mongo.db.contributors.find()
+    passwords = [entry["passkey"] for entry in contributors]
+
+    if request.method == "POST":
+        if request.form["contributor"]:
+            if session["username"] == "contributor":
+                flash("You are already authorised as contributor")
+                return render_template("contribute.html", letters=alphabet)
+            elif request.form["contributor"] in passwords:
+                session["username"] = "contributor"
+                flash("Contributor authorisation successful.")
+                return render_template("index.html", letters=alphabet)
+            else:
+                flash("Authorisation not recognised. Please try again.")
+                return render_template("contribute.html", letters=alphabet)
+
+
+@app.route("/logout")
+def logout():
+    session["username"] = "guest"
+    flash("Successfully logged out.")
+    return render_template("index.html", letters=alphabet)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

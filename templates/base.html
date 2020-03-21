@@ -15,7 +15,12 @@
 	<div>
 		<ul>
 			<li><a href="{{url_for('index')}}">Home</a></li>
+            {% if "contributor" in session["username"] %}
 			<li><a href="{{url_for('add_word')}}">New word</a></li>
+            <li><a href="{{url_for('logout')}}">Log out</a></li>
+            {% else %}
+            <li><a href="{{url_for('contribute')}}">Contribute</a></li>
+            {% endif %}
 		</ul>
 	</div>
 	<div>
