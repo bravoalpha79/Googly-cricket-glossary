@@ -11,6 +11,7 @@ function addMeaning() {
     let newMeaningRow = document.createElement("div");
     let newMeaningWrapper = document.createElement("div");
     let newMeaningTextarea = document.createElement("textarea");
+    let newMeaningLabel = document.createElement("label")
     
     newMeaningRow.setAttribute("class", "row");
 
@@ -19,9 +20,11 @@ function addMeaning() {
     newMeaningTextarea.id = `meaning${newMeaningNum}`;
     newMeaningTextarea.setAttribute("class", "meaning materialize-textarea");
     newMeaningTextarea.setAttribute("name", `meaning${newMeaningNum}`);
-    newMeaningTextarea.setAttribute("placeholder", `meaning ${newMeaningNum}`);
+
+    newMeaningLabel.setAttribute("for", `meaning${newMeaningNum}`)
     
     newMeaningWrapper.appendChild(newMeaningTextarea);
+    newMeaningWrapper.appendChild(newMeaningLabel);
     newMeaningRow.appendChild(newMeaningWrapper);
 
     document.getElementById("meanings").appendChild(newMeaningRow);

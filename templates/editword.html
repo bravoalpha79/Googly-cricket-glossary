@@ -6,23 +6,21 @@
         <div class="row">
             <div class="input-field col s8">
                 <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
+                <label for="term">word</label>
             </div>
         </div>
         <div id="meanings">
         {% for meaning in word.meanings %}
-            {% if loop.index == 1 %}
             <div class="row">
                 <div class="input-field col s8">
+                {% if loop.index == 1 %}
                     <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}" required>{{meaning}}</textarea>
-                </div>
-            </div>
-            {% else %}
-            <div class="row">
-                <div class="input-field col s8">
+                {% else %}
                     <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}">{{meaning}}</textarea>
+                {% endif %}
+                    <label for="meaning{{loop.index}}">meaning {{loop.index}}</label>
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
         </div>    
         <br>
@@ -31,4 +29,7 @@
         <a class="waves-effect waves-light btn grey" href="{{url_for('display_word', word=word.term)}}">Cancel</a>
     </form>
 </div>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 {% endblock %}
