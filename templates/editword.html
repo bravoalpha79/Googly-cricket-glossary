@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <form class="edit-word"action="{{url_for('update_word', word_id=word._id)}}", method ="POST">
+    <form class="edit-word" action="{{url_for('update_word', word_id=word._id)}}" method="POST">
         <div class="row">
             <div class="input-field col s8">
                 <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
@@ -29,7 +29,4 @@
         <a class="waves-effect waves-light btn grey" href="{{url_for('display_word', word=word.term)}}">Cancel</a>
     </form>
 </div>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 {% endblock %}

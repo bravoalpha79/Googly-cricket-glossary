@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-	<form class="add-word" action="{{url_for('insert_word')}}" , method="POST">
+	<form class="add-word" action="{{url_for('insert_word')}}" method="POST">
 		<div class="row">
             <div class="input-field col s8">
 			    <input type="text" id="term" name="term" required/>
@@ -23,7 +23,4 @@
 		<button class="btn waves-effect waves-light" type="submit">Add word</button>
 	</form>
 </div>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 {% endblock %}
