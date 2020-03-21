@@ -1,6 +1,12 @@
 //Materialize modal initializtion
+// $(document).ready(function(){
+//     $('.modal').modal();
+// });
+
 $(document).ready(function(){
-    $('.modal').modal();
+    if ($(".message").text()length) {
+        $('#message-modal').modal("open");
+    }
 });
 
 //Function to insert additional meaning field into addword/editword templates

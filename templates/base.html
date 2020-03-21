@@ -15,12 +15,12 @@
 	<div>
 		<ul>
 			<li><a href="{{url_for('index')}}">Home</a></li>
-            {% if "contributor" in session["username"] %}
+			{% if "contributor" in session["username"] %}
 			<li><a href="{{url_for('add_word')}}">New word</a></li>
-            <li><a href="{{url_for('logout')}}">Log out</a></li>
-            {% else %}
-            <li><a href="{{url_for('contribute')}}">Contribute</a></li>
-            {% endif %}
+			<li><a href="{{url_for('logout')}}">Log out</a></li>
+			{% else %}
+			<li><a href="{{url_for('contribute')}}">Contribute</a></li>
+			{% endif %}
 		</ul>
 	</div>
 	<div>
@@ -34,14 +34,21 @@
     {% endblock %}
 
 	<div>
-	<!-- Flash messages code snippet copied from https://flask.palletsprojects.com/ -->	
-		{% with messages = get_flashed_messages() %}
+		<!-- Flash messages code snippet copied from https://flask.palletsprojects.com/ -->
+		{% with messages = get_flashed_messages(with_categories=true) %}
 		{% if messages %}
-		<ul>
-			{% for message in messages %}
-			<li>{{ message }}</li>
-			{% endfor %}
-		</ul>
+		<!-- Materialize Modal Structure -->
+		<div id="message-modal" class="modal">
+			<div class="modal-content">
+				<h4></h4>
+                {% for message in mesages %}
+				<p class="{{category}}">{{message}}</p>
+                {% endfor %}
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+			</div>
+		</div>
 		{% endif %}
 		{% endwith %}
 	</div>
@@ -51,7 +58,7 @@
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<!-- Materialize - Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <!-- Custom JavaScript-->
+	<!-- Custom JavaScript-->
 	<script src="{{url_for('static', filename='js/script.js')}}"></script>
 
 </body>
