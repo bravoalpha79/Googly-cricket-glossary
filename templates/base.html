@@ -40,8 +40,8 @@
 		<!-- Materialize Modal Structure -->
 		<div id="message-modal" class="modal">
 			<div class="modal-content">
-				<h4></h4>
-                {% for message in mesages %}
+				<br>
+                {% for category, message in messages %}
 				<p class="{{category}}">{{message}}</p>
                 {% endfor %}
 			</div>
@@ -60,7 +60,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<!-- Custom JavaScript-->
 	<script src="{{url_for('static', filename='js/script.js')}}"></script>
-
+    <!-- Message modal auto-open if not empty - solution obtained from Stack Overflow and RIP Tutorial -->
+    <script>
+        $(document).ready(function() {
+            if ($(".message")) {
+                $("#message-modal").modal("open");
+            }
+        });
+    </script>
 </body>
 
 </html>

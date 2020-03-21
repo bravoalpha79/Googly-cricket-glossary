@@ -3,10 +3,8 @@
 //     $('.modal').modal();
 // });
 
-$(document).ready(function(){
-    if ($(".message").text()length) {
-        $('#message-modal').modal("open");
-    }
+$(document).ready(function() {
+    $("#message-modal").modal("open");
 });
 
 //Function to insert additional meaning field into addword/editword templates
