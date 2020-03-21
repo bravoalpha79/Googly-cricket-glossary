@@ -22,6 +22,7 @@ function addMeaning() {
     newMeaningTextarea.setAttribute("name", `meaning${newMeaningNum}`);
 
     newMeaningLabel.setAttribute("for", `meaning${newMeaningNum}`)
+    newMeaningLabel.innerHTML = `meaning${newMeaningNum}`;
     
     newMeaningWrapper.appendChild(newMeaningTextarea);
     newMeaningWrapper.appendChild(newMeaningLabel);
