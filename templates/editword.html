@@ -3,17 +3,28 @@
 {% block content %}
 <div class="container">
     <form class="edit-word"action="{{url_for('update_word', word_id=word._id)}}", method ="POST">
-        <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
-        <br>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
+            </div>
+        </div>
         <div id="meanings">
         {% for meaning in word.meanings %}
             {% if loop.index == 1 %}
-                <textarea class="meaning" id="meaning{{loop.index}}" name="meaning{{loop.index}}" cols="40" required>{{meaning}}</textarea>
+            <div class="row">
+                <div class="input-field col s8">
+                    <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}" required>{{meaning}}</textarea>
+                </div>
+            </div>
             {% else %}
-                <textarea class="meaning" id="meaning{{loop.index}}" name="meaning{{loop.index}}" cols="40">{{meaning}}</textarea>
+            <div class="row">
+                <div class="input-field col s8">
+                    <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}">{{meaning}}</textarea>
+                </div>
+            </div>
             {% endif %}
         {% endfor %}
-         </div>    
+        </div>    
         <br>
         <a id="add-meaning" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add meaning</a>
         <button class="waves-effect waves-light btn" type="submit">Update</button>
