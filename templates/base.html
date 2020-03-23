@@ -1,73 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Materialize - Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-	<title>Googly</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Materialize - Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+        <title>Googly</title>
+    </head>
 
-<body>
-	<div>
-		<ul>
-			<li><a href="{{url_for('index')}}">Home</a></li>
-			{% if "contributor" in session["username"] %}
-			<li><a href="{{url_for('add_word')}}">New word</a></li>
-			<li><a href="{{url_for('logout')}}">Log out</a></li>
-			{% else %}
-			<li><a href="{{url_for('contribute')}}">Contribute</a></li>
-			{% endif %}
-		</ul>
-	</div>
-	<div>
-		{% for letter in letters %}
-		<a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
-		{% endfor %}
-	</div>
-	<br>
+    <body>
+        <div>
+            <ul>
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                {% if "contributor" in session["username"] %}
+                <li><a href="{{url_for('add_word')}}">New word</a></li>
+                <li><a href="{{url_for('logout')}}">Log out</a></li>
+                {% else %}
+                <li><a href="{{url_for('contribute')}}">Contribute</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div>
+            {% for letter in letters %}
+            <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
+            {% endfor %}
+        </div>
+        <br>
 
-    {% block content %}
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-	<div>
-		<!-- Flash messages code snippet copied from https://flask.palletsprojects.com/ -->
-		{% with messages = get_flashed_messages(with_categories=true) %}
-		{% if messages %}
-		<!-- Materialize Modal Structure -->
-		<div id="message-modal" class="modal">
-			<div class="modal-content">
-				<br>
-                {% for category, message in messages %}
-				<p class="{{category}}">{{message}}</p>
+        <div id="flashes">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="message">{{message}}</p>
                 {% endfor %}
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
-			</div>
-		</div>
-		{% endif %}
-		{% endwith %}
-	</div>
+            {% endif %}
+            {% endwith %}
+        </div>
 
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<!-- Materialize - Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	<!-- Custom JavaScript-->
-	<script src="{{url_for('static', filename='js/script.js')}}"></script>
-    <!-- Message modal auto-open if not empty - solution obtained from Stack Overflow and RIP Tutorial -->
-    <script>
-        $(document).ready(function() {
-            if ($(".message")) {
-                $("#message-modal").modal("open");
-            }
-        });
-    </script>
-</body>
-
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <!-- Materialize - Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <!-- Custom JavaScript-->
+        <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    </body>
 </html>

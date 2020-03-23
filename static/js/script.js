@@ -1,11 +1,11 @@
 //Materialize modal initializtion
-// $(document).ready(function(){
-//     $('.modal').modal();
-// });
-
-$(document).ready(function() {
-    $("#message-modal").modal("open");
+$(document).ready(function(){
+     $('.modal').modal();
+     let message = $(".message").text();
+     Materialize.toast(message, 3000);
 });
+
+
 
 //Function to insert additional meaning field into addword/editword templates
 function addMeaning() {
