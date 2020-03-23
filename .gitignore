@@ -3,3 +3,4 @@ env.py
 .gitpod.yml
 .theia/
 __pycache__/
+Googly.code-workspace
