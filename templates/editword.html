@@ -5,7 +5,7 @@
     <form class="edit-word" action="{{url_for('update_word', word_id=word._id)}}" method="POST">
         <div class="row">
             <div class="input-field col s8">
-                <input type="text" id="term" name="term" value="{{word.term}}" required disabled/>
+                <input type="text" id="term" name="term" value="{{word.term}}" required />
                 <label for="term">word</label>
             </div>
         </div>

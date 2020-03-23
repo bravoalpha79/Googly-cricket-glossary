@@ -1,4 +1,4 @@
-//Materialize modal initializtion
+//Materialize modal and "toast" initialization
 $(document).ready(function(){
      $('.modal').modal();
      let message = $(".message").text();
@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 
 
-//Function to insert additional meaning field into addword/editword templates
+//Custom function to insert additional meaning field into addword/editword templates
 function addMeaning() {
     let meaningList = document.getElementsByClassName("meaning");
     let newMeaningNum = meaningList.length + 1;
