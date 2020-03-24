@@ -16,7 +16,7 @@
 <body>
     <!-- Materialize navbar -->
 	<nav class="nav-extended">
-		<div class="nav-wrapper">
+		<div class="nav-wrapper green">
 			<a href="{{url_for('index')}}" class="brand-logo">Googly</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -39,9 +39,9 @@
 			</ul>
 		</div>
 		<div class="nav-content">
-			<ul class="tabs tabs-transparent">
+			<ul class="letter-links right">
 				{% for letter in letters %}
-				<li class="tab"><a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
+				<li class="letter-link green"><a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
 				{% endfor %}
 			</ul>
 		</div>
