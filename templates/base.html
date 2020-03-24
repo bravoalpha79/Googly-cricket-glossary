@@ -2,54 +2,71 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Materialize - Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-    <title>Googly</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Materialize Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Materialize - Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<title>Googly</title>
 </head>
 
 <body>
-    <div>
-        <ul>
-            <li><a href="{{url_for('index')}}">Home</a></li>
-            {% if "contributor" in session["username"] %}
-            <li><a href="{{url_for('add_word')}}">New word</a></li>
-            <li><a href="{{url_for('logout')}}">Log out</a></li>
-            {% else %}
-            <li><a href="{{url_for('contribute')}}">Contribute</a></li>
-            {% endif %}
-        </ul>
-    </div>
-    <div class="glossary-letter">
-        {% for letter in letters %}
-        <a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
-        {% endfor %}
-    </div>
-    <br>
+    <!-- Materialize navbar -->
+	<nav class="nav-extended">
+		<div class="nav-wrapper">
+			<a href="{{url_for('index')}}" class="brand-logo">Googly</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="{{url_for('index')}}">Home</a></li>
+				{% if "contributor" in session["username"] %}
+				<li><a href="{{url_for('add_word')}}">New word</a></li>
+				<li><a href="{{url_for('logout')}}">Log out</a></li>
+				{% else %}
+				<li><a href="{{url_for('contribute')}}">Contribute</a></li>
+				{% endif %}
+			</ul>
+			<ul class="side-nav" id="mobile-demo">
+				<li><a href="{{url_for('index')}}">Home</a></li>
+				{% if "contributor" in session["username"] %}
+				<li><a href="{{url_for('add_word')}}">New word</a></li>
+				<li><a href="{{url_for('logout')}}">Log out</a></li>
+				{% else %}
+				<li><a href="{{url_for('contribute')}}">Contribute</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="nav-content">
+			<ul class="tabs tabs-transparent">
+				{% for letter in letters %}
+				<li class="tab"><a href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</nav>
+    <!-- ./navbar -->
+	{% block content %}
+	{% endblock %}
 
-    {% block content %}
-    {% endblock %}
+	<div id="flashes">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<p class="message">{{message}}</p>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+	</div>
 
-    <div id="flashes">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <p class="message">{{message}}</p>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <!-- Materialize - Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <!-- Custom JavaScript-->
-    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!-- Materialize - Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<!-- Custom JavaScript-->
+	<script src="{{url_for('static', filename='js/script.js')}}"></script>
 </body>
 
 </html>

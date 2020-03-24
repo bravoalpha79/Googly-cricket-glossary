@@ -1,5 +1,6 @@
-//Materialize modal and "toast" initialization
+//Materialize navbar, modal and "toast" initialization
 $(document).ready(function(){
+     $(".button-collapse").sideNav();
      $('.modal').modal();
      let message = $(".message").text();
      Materialize.toast(message, 3000);
