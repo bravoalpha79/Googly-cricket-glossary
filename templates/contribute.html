@@ -14,7 +14,7 @@
                 </div>
 			</div>
 		</form>
-		<form id="contact" class="col s12 m12 l6" action="" method="POST">
+		<form action="{{url_for('message_sent')}}" id="contactForm" class="col s12 m12 l6" onsubmit="return sendMail(this);" method="POST">
 			<div class="row">
 				<div class="input-field col s12">
 					<input type="text" id="firstname" name="firstname" required>
@@ -35,8 +35,8 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<textarea name="message" id="message" class="materialize-textarea"></textarea>
-					<label for="message">Your message</label>
+					<textarea name="contributormessage" id="contributormessage" class="materialize-textarea"></textarea>
+					<label for="contributormessage">Your message</label>
 				</div>
 			</div>
 			<button action="submit" class="waves-effect waves-light btn blue">Send</button>

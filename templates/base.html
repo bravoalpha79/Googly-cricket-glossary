@@ -5,16 +5,22 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Materialize Icons -->
+	<title>Googly</title>
+    <!-- Materialize Icons -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Materialize - Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-	<title>Googly</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+            emailjs.init("user_jYwaBLy9blrZ9N1FYxk8c");
+        })();
+	</script>
 </head>
 
 <body>
-    <!-- Materialize navbar -->
+	<!-- Materialize navbar -->
 	<nav class="nav-extended">
 		<div class="nav-wrapper green">
 			<a href="{{url_for('index')}}" class="brand-logo">Googly</a>
@@ -46,7 +52,7 @@
 			</ul>
 		</div>
 	</nav>
-    <!-- ./navbar -->
+	<!-- ./navbar -->
 	{% block content %}
 	{% endblock %}
 
@@ -67,6 +73,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<!-- Custom JavaScript-->
 	<script src="{{url_for('static', filename='js/script.js')}}"></script>
+    
 </body>
 
 </html>

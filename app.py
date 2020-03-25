@@ -114,7 +114,7 @@ def delete_word(word_id):
     return render_template("addword.html", letters=alphabet)
 
 
-@app.route("/contribute")
+@app.route("/contribute", methods=["GET", "POST"])
 def contribute():
     return render_template("contribute.html", letters=alphabet)
 
@@ -136,6 +136,11 @@ def authenticate_user():
             else:
                 flash("Authorisation not recognised. Please try again.")
                 return render_template("contribute.html", letters=alphabet)
+
+
+@app.route("/message_sent")
+def message_sent():
+    return render_template("contribute.html", letters=alphabet)
 
 
 @app.route("/logout")

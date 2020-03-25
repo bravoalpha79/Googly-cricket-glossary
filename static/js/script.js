@@ -6,7 +6,31 @@ $(document).ready(function(){
      Materialize.toast(message, 3000);
 });
 
+//function for {sending the Contributor contact form via emailJS
+function sendMail(contactForm) {
+    const name = `${contactForm.firstname.value} ${contactForm.lastname.value}`;
+    let message;
+    emailjs.send("gmail", "googly", {
+        "from_name": name,
+        "from_email": contactForm.email.value,
+        "contributor_request": contactForm.contributormessage.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+            message = `Thank you, ${name}. Your message has been sent`;
+        }, 
+        function(error) {
+            console.log("FAILED", error);
+            message = `Sorry, something went wrong. Message not sent`;  
+    })
+    .then(
+        function () {
+            Materialize.toast(message, 5000);
+        })
 
+    return false;
+}
 
 //Custom function to insert additional meaning field into addword/editword templates
 function addMeaning() {
