@@ -138,9 +138,9 @@ def authenticate_user():
                 return render_template("contribute.html", letters=alphabet)
 
 
-@app.route("/message_sent")
-def message_sent():
-    return render_template("contribute.html", letters=alphabet)
+# @app.route("/message_sent")
+# def message_sent():
+#     return render_template("contribute.html", letters=alphabet)
 
 
 @app.route("/logout")

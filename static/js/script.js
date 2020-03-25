@@ -18,15 +18,18 @@ function sendMail(contactForm) {
     .then(
         function(response) {
             console.log("SUCCESS", response);
-            message = `Thank you, ${name}. Your message has been sent`;
+            message = `Thank you, ${name}. Your message has been sent.`;
         }, 
         function(error) {
             console.log("FAILED", error);
-            message = `Sorry, something went wrong. Message not sent`;  
+            message = `Sorry, something went wrong. Message not sent.`;  
     })
     .then(
         function () {
-            Materialize.toast(message, 5000);
+            Materialize.toast(message, 4000);
+            setTimeout(function() {
+                window.location.href = "";
+            }, 2000)
         })
 
     return false;
