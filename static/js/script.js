@@ -1,10 +1,13 @@
-//Materialize navbar, modal and "toast" initialization
+//Materialize navbar, modal and "toast" initialisation
 $(document).ready(function(){
      $(".button-collapse").sideNav();
      $('.modal').modal();
      let message = $(".message").text();
      Materialize.toast(message, 3000);
 });
+
+//dotenv initialisation
+require('dotenv').config()
 
 //function for {sending the Contributor contact form via emailJS
 function sendMail(contactForm) {
