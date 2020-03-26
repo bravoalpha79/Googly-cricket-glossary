@@ -18,30 +18,25 @@ new autoComplete({
     data: {                              // Data src [Array, Function, Async] | (REQUIRED)
       src: async () => {
         // API key token
-        const token = "this_is_the_API_token_number";
+        const token = process.env.MONGO_URI;
         // User search query
         const query = document.querySelector("#autoComplete").value;
         // Fetch External Data Source
-        const source = await fetch(`https://www.food2fork.com/api/search?key=${token}&q=${query}`);
+        const source = await fetch(`https://cloud.mongodb.com/api/atlas/v1.0/search?key=${token}&q=${query}`);
         // Format data into JSON
         const data = await source.json();
         // Return Fetched data
-        return data.recipes;
+        return data.entries;
       },
-      key: ["title"],
+      key: ["form"],
       cache: false
-    },
-    query: {                               // Query Interceptor               | (Optional)
-          manipulate: (query) => {
-            return query.replace("pizza", "burger");
-          }
     },
     sort: (a, b) => {                    // Sort rendered results ascendingly | (Optional)
         if (a.match < b.match) return -1;
         if (a.match > b.match) return 1;
         return 0;
     },
-    placeHolder: "Food & Drinks...",     // Place Holder text                 | (Optional)
+    placeHolder: "Enter word...",     // Place Holder text                 | (Optional)
     selector: "#autoComplete",           // Input field selector              | (Optional)
     threshold: 3,                        // Min. Chars length to start Engine | (Optional)
     debounce: 300,                       // Post duration for engine to start | (Optional)
@@ -49,13 +44,13 @@ new autoComplete({
     resultsList: {                       // Rendered results list object      | (Optional)
         render: true,
         container: source => {
-            source.setAttribute("id", "food_list");
+            source.setAttribute("id", "word_list");
         },
         destination: document.querySelector("#autoComplete"),
         position: "afterend",
         element: "ul"
     },
-    maxResults: 5,                         // Max. number of rendered results | (Optional)
+    maxResults: 7,                         // Max. number of rendered results | (Optional)
     highlight: true,                       // Highlight matching results      | (Optional)
     resultItem: {                          // Rendered result item            | (Optional)
         content: (data, source) => {
@@ -74,9 +69,6 @@ new autoComplete({
         console.log(feedback.selection.value.image_url);
     }
 });
-
-
-
 
 
 
