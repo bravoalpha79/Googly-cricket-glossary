@@ -14,18 +14,20 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 @app.route("/")
 def index():
     return render_template('index.html', letters=alphabet)
-    
+
 
 @app.route("/display_letter/<letter>")
 def display_letter(letter):
     return render_template("letter.html",
                            letter=mongo.db.entries.find({
                             "letter": letter}).sort("term"), letters=alphabet)
+
 
 @app.route("/display_word/<word>")
 def display_word(word):
@@ -59,11 +61,11 @@ def insert_word():
         return redirect(url_for("add_word"))
     else:
         entries.insert_one(
-        {
-            "term": word,
-            "letter": word[0].upper(),
-            "meanings": meanings
-        })
+            {
+                "term": word,
+                "letter": word[0].upper(),
+                "meanings": meanings
+            })
         flash(("Entry '{}' successfully added.").format(word))
         return redirect(url_for("display_word", word=word))
 
@@ -71,8 +73,8 @@ def insert_word():
 @app.route("/edit_word/<word_id>")
 def edit_word(word_id):
     word_to_edit = mongo.db.entries.find_one({"_id": ObjectId(word_id)})
-    return render_template("editword.html", 
-                            word=word_to_edit, letters=alphabet)
+    return render_template("editword.html",
+                           word=word_to_edit, letters=alphabet)
 
 
 @app.route("/update_word/<word_id>", methods=["GET", "POST"])
@@ -81,7 +83,7 @@ def update_word(word_id):
     all_entries = mongo.db.entries.find()
     all_words = [entry["term"] for entry in all_entries]
     glossary = [item.lower() for item in all_words]
-    
+
     meanings = []
 
     for k, v in request.form.items():
@@ -97,18 +99,18 @@ def update_word(word_id):
                                 word_id=word_id))
     else:
         entries.update_one({"_id": ObjectId(word_id)},
-        {"$set": {
-            "term": term_to_update,
-            "meanings": meanings
-        }})
+                           {"$set": {
+                                "term": term_to_update,
+                                "meanings": meanings
+                           }})
     flash("Word successfully updated.")
-    return redirect(url_for("display_word", 
+    return redirect(url_for("display_word",
                             word=term_to_update))
 
 
 @app.route("/delete_word/<word_id>")
 def delete_word(word_id):
-    entries = mongo.db.entries  
+    entries = mongo.db.entries
     entries.delete_one({"_id": ObjectId(word_id)})
     flash("Entry successfully deleted.")
     return render_template("addword.html", letters=alphabet)
@@ -136,11 +138,6 @@ def authenticate_user():
             else:
                 flash("Authorisation not recognised. Please try again.")
                 return render_template("contribute.html", letters=alphabet)
-
-
-# @app.route("/message_sent")
-# def message_sent():
-#     return render_template("contribute.html", letters=alphabet)
 
 
 @app.route("/logout")
