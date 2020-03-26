@@ -10,13 +10,9 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!-- Materialize - Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- autoComplete.js search form - code obtained from https://tarekraafat.github.io/autoComplete.js/#/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-	<script type="text/javascript">
-		(function(){
-            emailjs.init("user_jYwaBLy9blrZ9N1FYxk8c");
-        })();
-	</script>
 </head>
 
 <body>
@@ -71,6 +67,15 @@
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<!-- Materialize - Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- autoComplete.js search form - code obtained from https://tarekraafat.github.io/autoComplete.js/#/ -->
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+    <!-- emailJS initialisation -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+            emailjs.init("user_jYwaBLy9blrZ9N1FYxk8c");
+        })();
+	</script>
 	<!-- Custom JavaScript-->
 	<script src="{{url_for('static', filename='js/script.js')}}"></script>
     
