@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <br>
-    {% for word in letter %}
-    <a href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
-    <br>
-    {% endfor %}
+    <div id="contribute" class="col s12 m12 l12 offset-l3">
+        <br>
+        {% for word in letter %}
+        <a href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
+        <br>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -2,6 +2,12 @@
     display: blocK;
 }
 
+#home {
+    background: url("stumps.jpg") center right no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
 .glossary-letter a {
     font-size: 2rem;
 }
@@ -58,7 +64,7 @@
     }
 
     .nav-wrapper {
-        background: url("stumps.jpg") top left no-repeat fixed;
+        background-color: green;
         display: flex;
         flex-direction: column;
         width: 100%;

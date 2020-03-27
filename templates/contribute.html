@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-	<div class="row">
-		<form id="login" class="col s12 m12 l6" action="{{url_for('authenticate_user')}}" method="POST">
+<div id="contribute" class="col s12 m12 l12 offset-l2">
+    <div class="row">
+		<form id="login" class="col s12 m12 l4" action="{{url_for('authenticate_user')}}" method="POST">
 			<div class="row">
 				<div class="input-field col s8">
 					<input id="contributor" name="contributor" type="text">
@@ -14,7 +14,7 @@
                 </div>
 			</div>
 		</form>
-		<form id="contactForm" class="col s12 m12 l6" onsubmit="return sendMail(this);" method="POST">
+		<form id="contactForm" class="col s12 m12 l5" onsubmit="return sendMail(this);" method="POST">
 			<div class="row">
 				<div class="input-field col s12">
 					<input type="text" id="firstname" name="firstname" required>
