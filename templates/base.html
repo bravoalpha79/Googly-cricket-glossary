@@ -21,13 +21,6 @@
 		<div class="nav-wrapper green">
 			<a href="{{url_for('index')}}" class="brand-logo center">Googly</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <form id="searchbox">
-                <div class="input-field">
-                    <input id="search" type="search" value="Find word..." required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
             <ul id="nav-mobile" class="right">
 				<li><a href="{{url_for('index')}}">Home</a></li>
 				{% if "contributor" in session["username"] %}
@@ -46,6 +39,15 @@
 				<li><a href="{{url_for('contribute')}}">Contribute</a></li>
 				{% endif %}
 			</ul>
+            <input id="autoComplete" tabindex="1">
+            <!-- <form id="searchbox">
+                <div class="input-field">
+                    <input id="search" type="search" value="Find word..." required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    <input type="button" onclick="search_word()" />
+                </div>
+            </form> -->
             <div id="letter-links">
                 <p><em>Browse by letter:</em></p>
 				{% for letter in letters %}

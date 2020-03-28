@@ -3,7 +3,7 @@
 }
 
 #home {
-    background: url("stumps.jpg") center right no-repeat;
+    background: url("stumps.jpg") center center no-repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -75,16 +75,17 @@
         display: block;
     }
 
-    #searchbox {
-        background-color: darkgreen;
+    #autoComplete {
+        /* background-color: darkgreen; */
         position: absolute;
-        top: 10%;
+        top: 42%;
         height: 10%;
+        width: 70%;
     }
 
     #nav-mobile {
         position: absolute;
-        top: 20%;
+        top: 10%;
         display: flex;
         flex-direction: column;
         width: 100%;

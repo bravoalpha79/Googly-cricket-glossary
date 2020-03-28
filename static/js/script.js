@@ -128,3 +128,27 @@ function addMeaning() {
 
     document.getElementById("meanings").appendChild(newMeaningRow);
 }
+
+
+function search_word(){
+    the_actual_search_word = document.getElementById('The id in here');
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/search/' + the_actual_search_word.value);
+    xhr.send(null);
+
+    xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+        if (xhr.status === OK) {
+        console.log(xhr.responseText); // 'This is the returned text.'
+        // show the reponse back on UI <some div in here for display>
+        } else {
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+        // there's an error, and you wanna display the error
+        }
+        }
+    };
+
+}

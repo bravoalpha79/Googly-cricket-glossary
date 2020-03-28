@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import jsonify
 from flask_pymongo import PyMongo
 # from bson.json_util import dumps
 from bson.objectid import ObjectId
@@ -28,6 +29,19 @@ def display_letter(letter):
                            letter=mongo.db.entries.find({
                             "letter": letter}).sort("term"), letters=alphabet)
 
+@app.route("/search/<word>")
+def search_word(word):
+    # saerch in database
+    entries = mongo.db.entries
+    all_entries = mongo.db.entries.find()
+    all_words = [entry["term"] for entry in all_entries]
+    glossary = [item.lower() for item in all_words]
+
+    # find if we have the search item in the above said glossary
+    found_it = {
+        word: 'from glossary you got blah blah blah'
+    }
+    return jsonify(found_it)
 
 @app.route("/display_word/<word>")
 def display_word(word):
