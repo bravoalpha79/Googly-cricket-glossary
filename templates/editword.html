@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="contribute" class="col s12 m12 l12 offset-l3">
-        <div class="row">
+    <div class="row" id="editword">
+        <div class="col s8 offset-s2">
+            <h5>Edit entry "{{word.term}}"</h5>
             <form class="edit-word" action="{{url_for('update_word', word_id=word._id)}}" method="POST">
                 <div class="row">
                     <div class="input-field col s8">
@@ -13,7 +14,7 @@
                 <div id="meanings">
                 {% for meaning in word.meanings %}
                     <div class="row">
-                        <div class="input-field col s8">
+                        <div class="input-field col s12">
                         {% if loop.index == 1 %}
                             <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}" required>{{meaning}}</textarea>
                         {% else %}
