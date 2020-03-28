@@ -6,73 +6,8 @@ $(document).ready(function(){
      Materialize.toast(message, 3000);
 });
 
-//dotenv initialisation
-require('dotenv').config()
 
-// /**
-//  * AutoComplete search form.
-//  * Application code obtained from https://tarekraafat.github.io/autoComplete.js/#/
-//  * and adapted to project needs.  
-//  */
-// new autoComplete({
-//     data: {                              // Data src [Array, Function, Async] | (REQUIRED)
-//       src: async () => {
-//         // API key token
-//         const token = process.env.MONGO_URI;
-//         // User search query
-//         const query = document.querySelector("#autoComplete").value;
-//         // Fetch External Data Source
-//         const source = await fetch(`https://cloud.mongodb.com/api/atlas/v1.0/search?key=${token}&q=${query}`);
-//         // Format data into JSON
-//         const data = await source.json();
-//         // Return Fetched data
-//         return data.entries;
-//       },
-//       key: ["form"],
-//       cache: false
-//     },
-//     sort: (a, b) => {                    // Sort rendered results ascendingly | (Optional)
-//         if (a.match < b.match) return -1;
-//         if (a.match > b.match) return 1;
-//         return 0;
-//     },
-//     placeHolder: "Enter word...",     // Place Holder text                 | (Optional)
-//     selector: "#autoComplete",           // Input field selector              | (Optional)
-//     threshold: 3,                        // Min. Chars length to start Engine | (Optional)
-//     debounce: 300,                       // Post duration for engine to start | (Optional)
-//     searchEngine: "strict",              // Search Engine type/mode           | (Optional)
-//     resultsList: {                       // Rendered results list object      | (Optional)
-//         render: true,
-//         container: source => {
-//             source.setAttribute("id", "word_list");
-//         },
-//         destination: document.querySelector("#autoComplete"),
-//         position: "afterend",
-//         element: "ul"
-//     },
-//     maxResults: 7,                         // Max. number of rendered results | (Optional)
-//     highlight: true,                       // Highlight matching results      | (Optional)
-//     resultItem: {                          // Rendered result item            | (Optional)
-//         content: (data, source) => {
-//             source.innerHTML = data.match;
-//         },
-//         element: "li"
-//     },
-//     noResults: () => {                     // Action script on noResults      | (Optional)
-//         const result = document.createElement("li");
-//         result.setAttribute("class", "no_result");
-//         result.setAttribute("tabindex", "1");
-//         result.innerHTML = "No Results";
-//         document.querySelector("#autoComplete_list").appendChild(result);
-//     },
-//     onSelection: feedback => {             // Action script onSelection event | (Optional)
-//         console.log(feedback.selection.value.image_url);
-//     }
-// });
-
-
-
-//function for {sending the Contributor contact form via emailJS
+//emailJS sendMail function
 function sendMail(contactForm) {
     const name = `${contactForm.firstname.value} ${contactForm.lastname.value}`;
     let message;
@@ -106,14 +41,11 @@ function addMeaning() {
     let meaningList = document.getElementsByClassName("meaning");
     let newMeaningNum = meaningList.length + 1;
 
-    let newMeaningRow = document.createElement("div");
     let newMeaningWrapper = document.createElement("div");
     let newMeaningTextarea = document.createElement("textarea");
     let newMeaningLabel = document.createElement("label")
-    
-    newMeaningRow.setAttribute("class", "row");
 
-    newMeaningWrapper.setAttribute("class", "input-field col s8")
+    newMeaningWrapper.setAttribute("class", "input-field col s12")
 
     newMeaningTextarea.id = `meaning${newMeaningNum}`;
     newMeaningTextarea.setAttribute("class", "meaning materialize-textarea");
@@ -124,7 +56,46 @@ function addMeaning() {
     
     newMeaningWrapper.appendChild(newMeaningTextarea);
     newMeaningWrapper.appendChild(newMeaningLabel);
-    newMeaningRow.appendChild(newMeaningWrapper);
 
-    document.getElementById("meanings").appendChild(newMeaningRow);
+    document.getElementById("meanings").appendChild(newMeaningWrapper);
 }
+
+// search box & autocomplete function
+function searchWord() {
+    word = $("#autocomplete-input").val();
+    wordToFind = word.toLowerCase();
+    
+    if (wordToFind.length > 2) {
+
+        $.when(
+            $.getJSON(`/search/${wordToFind}`)
+        ).then(
+            function(response) {
+                $('input.autocomplete').autocomplete({
+                    data: response,
+                    limit: 5, 
+                    onAutocomplete: function(val) {
+                        window.open(`/display_word/${val}`, "_self");
+                    },
+                    minLength: 1,
+                });
+            },
+            function(errorResponse) {
+                let data;
+                if (errorResponse.status === 404) {
+                   data = {
+                       "No matching term found.": null
+                   };
+                } else {
+                    data = { 
+                        "An error has occurred." : null
+                    };
+                }
+                
+                $('input.autocomplete').autocomplete({
+                    data: data,
+                    limit: 1, 
+                    minLength: 1
+                });        
+            }
+)}};

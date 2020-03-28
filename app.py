@@ -1,7 +1,7 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
+from flask import jsonify
 from flask_pymongo import PyMongo
-# from bson.json_util import dumps
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
@@ -29,6 +29,28 @@ def display_letter(letter):
                             "letter": letter}).sort("term"), letters=alphabet)
 
 
+@app.route("/search/<word>", methods=["GET", "POST"])
+def search_word(word):
+    entries = mongo.db.entries
+    all_entries = entries.find()
+    all_words = [item["term"] for item in all_entries]
+    matches = []
+    
+    for entry in all_words:
+        if entry[0:len(word)] == word:
+            matches.append(entry)
+    
+    found = {}
+
+    if matches:
+        for match in matches:
+            found[match] = ""
+    else:
+        found["No matching term found."] = ""
+
+    return jsonify(found)
+
+
 @app.route("/display_word/<word>")
 def display_word(word):
     return render_template("word.html",
@@ -43,7 +65,7 @@ def add_word():
 
 @app.route("/insert_word", methods=["GET", "POST"])
 def insert_word():
-    word = request.form["term"]
+    word = request.form["term"].lower()
     entries = mongo.db.entries
     all_entries = mongo.db.entries.find()
     all_words = [entry["term"] for entry in all_entries]
@@ -56,7 +78,7 @@ def insert_word():
             if v != "":
                 meanings.append(v)
 
-    if word.lower() in glossary:
+    if word in glossary:
         flash(("Entry '{}' already exists.").format(word))
         return redirect(url_for("add_word"))
     else:
@@ -80,10 +102,9 @@ def edit_word(word_id):
 @app.route("/update_word/<word_id>", methods=["GET", "POST"])
 def update_word(word_id):
     entries = mongo.db.entries
-    all_entries = mongo.db.entries.find()
-    all_words = [entry["term"] for entry in all_entries]
-    glossary = [item.lower() for item in all_words]
-
+    term_to_update = request.form["term"].lower()
+    same_term = entries.find_one({"term": term_to_update})
+    
     meanings = []
 
     for k, v in request.form.items():
@@ -91,9 +112,7 @@ def update_word(word_id):
             if v != "":
                 meanings.append(v)
 
-    term_to_update = request.form["term"]
-
-    if term_to_update.lower() in glossary:
+    if same_term and same_term["_id"] != ObjectId(word_id):
         flash(("Entry '{}' already exists.").format(term_to_update))
         return redirect(url_for("edit_word",
                                 word_id=word_id))

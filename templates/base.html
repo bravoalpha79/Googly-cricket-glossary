@@ -18,17 +18,10 @@
 <body>
 	<!-- Materialize navbar -->
 	<nav>
-		<div class="nav-wrapper green">
-			<a href="{{url_for('index')}}" class="brand-logo center">Googly</a>
+		<div class="nav-wrapper">
+			<a href="{{url_for('index')}}" class="brand-logo">Googly</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <form id="searchbox">
-                <div class="input-field">
-                    <input id="search" type="search" value="Find word..." required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-            <ul id="nav-mobile" class="right">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="{{url_for('index')}}">Home</a></li>
 				{% if "contributor" in session["username"] %}
 				<li><a href="{{url_for('add_word')}}">New word</a></li>
@@ -46,21 +39,22 @@
 				<li><a href="{{url_for('contribute')}}">Contribute</a></li>
 				{% endif %}
 			</ul>
-            <div id="letter-links">
-                <p><em>Browse by letter:</em></p>
-				{% for letter in letters %}
-				<a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
-				{% endfor %}
-			</div>
+
+            <!-- <form id="searchbox">
+                <div class="input-field">
+                    <input id="search" type="search" value="Find word..." required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                    <input type="button" onclick="search_word()" />
+                </div>
+            </form> -->
 		</div>
 	</nav>
 	<!-- ./navbar -->
     
-    <div class="row">
         {% block content %}
         {% endblock %}
-    </div>
-
+    
 	<div id="flashes">
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}

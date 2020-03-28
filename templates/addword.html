@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="contribute" class="col s12 m12 l12 offset-l3">
-	<form class="add-word" action="{{url_for('insert_word')}}" method="POST">
-		<div class="row">
-            <div class="input-field col s8">
-			    <input type="text" id="term" name="term" required/>
-                <label for="term">word</label>
-            </div>
-        </div>
-		<div id="meanings">
-           <div class="row">
+<div class="row" id="newword">
+    <div class="col s8 offset-s2">
+        <h5>Add new entry</h5>
+        <form class="add-word" action="{{url_for('insert_word')}}" method="POST">
+            <div class="row">
                 <div class="input-field col s8">
-		        	<textarea class="meaning materialize-textarea" id="meaning1" name="meaning1" required></textarea>
-                    <label for="meaning1">meaning</label>
+                    <input type="text" id="term" name="term" required/>
+                    <label for="term">word</label>
                 </div>
-           </div>
-		</div>
-		<br>
-		<a id="add-meaning" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
-				meaning</a>
-		<button class="btn waves-effect waves-light" type="submit">Add word</button>
-	</form>
+                <div id="meanings">
+                    <div class="input-field col s12">
+                        <textarea class="meaning materialize-textarea" id="meaning1" name="meaning1" required></textarea>
+                        <label for="meaning1">meaning</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <a id="add-meaning" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
+                    meaning</a>
+            <button class="btn waves-effect waves-light" type="submit">Add word</button>
+        </form>
+    </div>
 </div>
 {% endblock %}

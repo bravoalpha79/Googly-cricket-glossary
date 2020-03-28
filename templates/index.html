@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="home" class="col s12 m12 l12 offset-l2">
-        <p>Some text<p>
-    </div> 
+    <div class="row" id="home-row">
+        <div id="home" class="col s12 center">
+            <p>Googly is an online glossary of cricket, open to contribution by registered users.<p>
+            <div class="row center-align">
+                <div id="searchbox" class="input-field col s4 offset-s4">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" id="autocomplete-input" class="autocomplete" oninput="searchWord()">
+                    <label for="autocomplete-input">Search for a specific term...</label>
+                </div>
+            </div>
+            <div id="letter-links">
+                <p><em>...or browse entries by letter:</em></p>
+                {% for letter in letters %}
+                    <a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

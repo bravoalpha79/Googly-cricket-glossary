@@ -1,48 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="contribute" class="col s12 m12 l12 offset-l2">
-    <div class="row">
-		<form id="login" class="col s12 m12 l4" action="{{url_for('authenticate_user')}}" method="POST">
+    <div class="row" id="contribute">
+		<form id="login" class="col s8 offset-s2 l4 offset-l1" action="{{url_for('authenticate_user')}}" method="POST">   
 			<div class="row">
+                <div class="input-field col s8">
+                    <p>Enter your contributor password to access contributor features.</p>
+                </div>
 				<div class="input-field col s8">
 					<input id="contributor" name="contributor" type="text">
-					<label for="contributor">Contributor password</label>
+					<label for="contributor">Password</label>
 				</div>
                 <div class="input-field col s8">
 				    <button action="submit" class="waves-effect waves-light btn blue">Enter</button>
                 </div>
 			</div>
 		</form>
-		<form id="contactForm" class="col s12 m12 l5" onsubmit="return sendMail(this);" method="POST">
-			<div class="row">
+		<form id="contactForm" class="col s8 offset-s2 l6" onsubmit="return sendMail(this);" method="POST">
+			<div class="row center-align">
+                <div class="input-field col s12">
+					<p>
+                        Not a contributor yet? No problem! <br />
+                        Send us a message and we'll email you a Contributor password.
+                    </p>
+				</div>
 				<div class="input-field col s12">
 					<input type="text" id="firstname" name="firstname" required>
 					<label for="firstname">First name</label>
 				</div>
-			</div>
-			<div class="row">
 				<div class="input-field col s12">
 					<input type="text" id="lastname" name="lastname" required>
 					<label for="lastname">Last name</label>
 				</div>
-			</div>
-			<div class="row">
 				<div class="input-field col s12">
 					<input type="email" id="email" name="email" required>
 					<label for="">Email</label>
 				</div>
-			</div>
-			<div class="row">
 				<div class="input-field col s12">
 					<textarea name="contributormessage" id="contributormessage" class="materialize-textarea"></textarea>
 					<label for="contributormessage">Your message</label>
 				</div>
-			</div>
-			<button action="submit" class="waves-effect waves-light btn blue">Send</button>
+                <div class="input-field col s12">
+			        <button action="submit" class="waves-effect waves-light btn blue">Send</button>
+                </div>
 		</form>
 	</div>
-</div>
 
 
 {% endblock %}

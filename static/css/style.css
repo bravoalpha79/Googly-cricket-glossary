@@ -1,18 +1,35 @@
+h5 {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
 .meaning {
     display: blocK;
 }
 
-#home {
-    background: url("stumps.jpg") center right no-repeat;
+#home-row {
+    background: url("stumps.jpg") center center no-repeat;
     background-size: cover;
     height: 100vh;
+    color: darkgreen;
 }
 
-.glossary-letter a {
-    font-size: 2rem;
+#searchbox,
+#letter-links {
+    margin-top: 15vh;
 }
 
-.entry a {
+#autoComplete {
+    background-color: green;
+    color: darkgreen;
+}
+
+.letter-link {
+    font-size: 1.5rem;
+    margin: 0.3rem;
+}
+
+#entry a {
     height: 1.5rem;
     width: 4.7rem;
     line-height: 1.6rem;
@@ -50,11 +67,16 @@
     width: 30vw;
 }
 
-#letter-links {
-    display: none;
+#login p,
+#contactForm p {
+    margin-bottom: 1.5rem;
 }
 
-@media (min-width: 992px) {
+/* #letter-links {
+    display: none;
+} */
+
+/* @media (min-width: 992px) {
     nav {
         position: fixed;
         top: 0;
@@ -75,16 +97,17 @@
         display: block;
     }
 
-    #searchbox {
+    #autoComplete {
         background-color: darkgreen;
         position: absolute;
-        top: 10%;
+        top: 42%;
         height: 10%;
+        width: 70%;
     }
 
     #nav-mobile {
         position: absolute;
-        top: 20%;
+        top: 10%;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -116,4 +139,4 @@
         margin: 1px;   
     }
 
-}
+} */
