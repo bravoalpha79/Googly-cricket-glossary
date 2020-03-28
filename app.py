@@ -57,7 +57,7 @@ def add_word():
 
 @app.route("/insert_word", methods=["GET", "POST"])
 def insert_word():
-    word = request.form["term"]
+    word = request.form["term"].lower()
     entries = mongo.db.entries
     all_entries = mongo.db.entries.find()
     all_words = [entry["term"] for entry in all_entries]
@@ -70,7 +70,7 @@ def insert_word():
             if v != "":
                 meanings.append(v)
 
-    if word.lower() in glossary:
+    if word in glossary:
         flash(("Entry '{}' already exists.").format(word))
         return redirect(url_for("add_word"))
     else:
@@ -94,10 +94,9 @@ def edit_word(word_id):
 @app.route("/update_word/<word_id>", methods=["GET", "POST"])
 def update_word(word_id):
     entries = mongo.db.entries
-    all_entries = mongo.db.entries.find()
-    all_words = [entry["term"] for entry in all_entries]
-    glossary = [item.lower() for item in all_words]
-
+    term_to_update = request.form["term"].lower()
+    same_term = entries.find_one({"term": term_to_update})
+    
     meanings = []
 
     for k, v in request.form.items():
@@ -105,9 +104,7 @@ def update_word(word_id):
             if v != "":
                 meanings.append(v)
 
-    term_to_update = request.form["term"]
-
-    if term_to_update.lower() in glossary:
+    if same_term and same_term["_id"] != ObjectId(word_id):
         flash(("Entry '{}' already exists.").format(term_to_update))
         return redirect(url_for("edit_word",
                                 word_id=word_id))
