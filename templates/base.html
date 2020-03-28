@@ -23,7 +23,7 @@
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="{{url_for('index')}}">Home</a></li>
-				{% if "contributor" in session["username"] %}
+				{% if "username" in session %}
 				<li><a href="{{url_for('add_word')}}">New word</a></li>
 				<li><a href="{{url_for('logout')}}">Log out</a></li>
 				{% else %}
@@ -32,7 +32,7 @@
 			</ul>
 			<ul class="side-nav" id="mobile-demo">
 				<li><a href="{{url_for('index')}}">Home</a></li>
-				{% if "contributor" in session["username"] %}
+				{% if "username" in session %}
 				<li><a href="{{url_for('add_word')}}">New word</a></li>
 				<li><a href="{{url_for('logout')}}">Log out</a></li>
 				{% else %}

@@ -146,22 +146,21 @@ def authenticate_user():
     passwords = [entry["passkey"] for entry in contributors]
 
     if request.method == "POST":
-        if request.form["contributor"]:
-            if session["username"] == "contributor":
-                flash("You are already authorised as contributor")
-                return render_template("contribute.html", letters=alphabet)
-            elif request.form["contributor"] in passwords:
-                session["username"] = "contributor"
-                flash("Contributor authorisation successful.")
-                return render_template("index.html", letters=alphabet)
-            else:
-                flash("Authorisation not recognised. Please try again.")
-                return render_template("contribute.html", letters=alphabet)
+        if "username" in session:
+            flash("You are already authorised as contributor")
+            return render_template("contribute.html", letters=alphabet)
+        elif request.form["contributor"] in passwords:
+            session["username"] = "contributor"
+            flash("Contributor authorisation successful.")
+            return render_template("index.html", letters=alphabet)
+        else:
+            flash("Authorisation not recognised. Please try again.")
+            return render_template("contribute.html", letters=alphabet)
 
 
 @app.route("/logout")
 def logout():
-    session["username"] = "guest"
+    session.pop("username")
     flash("Successfully logged out.")
     return render_template("index.html", letters=alphabet)
 

@@ -9,7 +9,7 @@
                     <p>{{loop.index}}. {{meaning}}.</p>
                 {% endfor %}
 
-                {% if "contributor" in session["username"] %}
+                {% if "username" in session %}
                 <!-- Materialize buttons -->
                 <a class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
                 <a class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
