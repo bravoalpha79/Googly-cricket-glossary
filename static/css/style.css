@@ -2,14 +2,26 @@
     display: blocK;
 }
 
-#home {
+#home-row {
     background: url("stumps.jpg") center center no-repeat;
     background-size: cover;
     height: 100vh;
+    color: darkgreen;
 }
 
-.glossary-letter a {
-    font-size: 2rem;
+#searchbox,
+#letter-links {
+    margin-top: 15vh;
+}
+
+#autoComplete {
+    background-color: green;
+    color: darkgreen;
+}
+
+.letter-link {
+    font-size: 1.5rem;
+    margin: 0.3rem;
 }
 
 .entry a {
@@ -50,11 +62,11 @@
     width: 30vw;
 }
 
-#letter-links {
+/* #letter-links {
     display: none;
-}
+} */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
     nav {
         position: fixed;
         top: 0;
@@ -76,7 +88,7 @@
     }
 
     #autoComplete {
-        /* background-color: darkgreen; */
+        background-color: darkgreen;
         position: absolute;
         top: 42%;
         height: 10%;
@@ -117,4 +129,4 @@
         margin: 1px;   
     }
 
-}
+} */
