@@ -1,8 +1,7 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
 from flask import jsonify
 from flask_pymongo import PyMongo
-# from bson.json_util import dumps
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
@@ -29,19 +28,28 @@ def display_letter(letter):
                            letter=mongo.db.entries.find({
                             "letter": letter}).sort("term"), letters=alphabet)
 
-@app.route("/search/<word>")
-def search_word(word):
-    # saerch in database
-    entries = mongo.db.entries
-    all_entries = mongo.db.entries.find()
-    all_words = [entry["term"] for entry in all_entries]
-    glossary = [item.lower() for item in all_words]
 
-    # find if we have the search item in the above said glossary
-    found_it = {
-        word: 'from glossary you got blah blah blah'
-    }
-    return jsonify(found_it)
+@app.route("/search/<word>", methods=["GET", "POST"])
+def search_word(word):
+    entries = mongo.db.entries
+    all_entries = entries.find()
+    all_words = [item["term"] for item in all_entries]
+    matches = []
+    
+    for entry in all_words:
+        if entry[0:len(word)] == word:
+            matches.append(entry)
+    
+    found = {}
+
+    if matches:
+        for match in matches:
+            found[match] = ""
+    else:
+        found["No matching term found."] = ""
+
+    return jsonify(found)
+
 
 @app.route("/display_word/<word>")
 def display_word(word):
