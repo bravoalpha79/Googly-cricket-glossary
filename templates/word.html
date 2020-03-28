@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="contribute" class="col s12 m12 l12 offset-l3">
-    <div class="entry">
-        <h3>{{word.term}}</h3>
+<div class="row" id="word-entry">
+    <div id="entry" class="col s8 offset-s3 m6 offset-m5 l4 offset-l5">
+                <h3>{{word.term}}</h3>
 
-        {% for meaning in word.meanings %}
-        <p>{{loop.index}}. {{meaning}}.</p>
-        {% endfor %}
+                {% for meaning in word.meanings %}
+                    <p>{{loop.index}}. {{meaning}}.</p>
+                {% endfor %}
 
-        {% if "contributor" in session["username"] %}
-        <!-- Materialize buttons -->
-        <a class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
-        <a class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
-        {% endif %}
+                {% if "contributor" in session["username"] %}
+                <!-- Materialize buttons -->
+                <a class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
+                <a class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
+                {% endif %}
     </div>
 </div>
 <!-- Materialize Modal Structure -->
