@@ -4,10 +4,14 @@
 <div class="row wallpaper">
     <div class="col s12">
         <div class="text-frame">
-            {% for word in letter %}
-                <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
-                <br>
-            {% endfor %}
+            {% if not letter[0] %}
+                <p>No entry found.<p>
+            {% else %}    
+                {% for word in letter %}
+                    <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
+                    <br>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>
