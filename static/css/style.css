@@ -17,17 +17,26 @@ h5 {
 }
 
 #searchbar {
-    width: 20%;
+    width: 25%;
 }
 
 .meaning {
     display: block;
 }
 
-#home-row {
+.wallpaper {
     background: url("stumps.jpg") top center no-repeat;
     background-size: cover;
     height: 80vh;
+}
+
+.text-frame {
+    background-color: rgba(161, 136, 127, 0.6);
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-content: center;
 }
 
 #letter-links {
@@ -46,6 +55,12 @@ h5 {
 .letter-link {
     font-size: 1.5rem;
     display: inline-block;
+}
+
+.wordlink {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
 }
 
 #entry a {
@@ -91,6 +106,4 @@ h5 {
     margin-bottom: 1.5rem;
 }
 
-.autocomplete input {
-    position: absolute;
-}
+

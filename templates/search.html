@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if matches|length == 0 %}
-    <h4>No results found for your search.</h4>
-{% else %}
-    {% for match in matches %}
-        <a href="{{url_for('display_word', word=match)}}">{{match}}</a>
-    {% endfor %}
-{% endif %}
+<div class="row wallpaper">
+    <div class="col s10 offset-s1">
+        <div class="text-frame">
+            <!-- Jinja length command obtained from Stack Overflow -->
+            {% if matches|length == 0 %}
+                <h4>No results found for your search.</h4>
+            {% else %}
+                {% for match in matches %}
+                    <a class="wordlink" href="{{url_for('display_word', word=match)}}">{{match}}</a>
+                    <br/>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
