@@ -3,30 +3,49 @@ h5 {
     margin-bottom: 2rem;
 }
 
+#letternav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#searchbox {
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+#searchbar {
+    width: 20%;
+}
+
 .meaning {
-    display: blocK;
+    display: block;
 }
 
 #home-row {
-    background: url("stumps.jpg") center center no-repeat;
+    background: url("stumps.jpg") top center no-repeat;
     background-size: cover;
-    height: 100vh;
-    color: darkgreen;
+    height: 80vh;
 }
 
-#searchbox,
 #letter-links {
-    margin-top: 15vh;
-}
-
-#autoComplete {
-    background-color: green;
-    color: darkgreen;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #a1887f;
+    align-items: center;
+    width: 70%;
+    line-height: 2.5rem;
 }
 
 .letter-link {
     font-size: 1.5rem;
-    margin: 0.3rem;
+    display: inline-block;
 }
 
 #entry a {
@@ -72,71 +91,6 @@ h5 {
     margin-bottom: 1.5rem;
 }
 
-/* #letter-links {
-    display: none;
-} */
-
-/* @media (min-width: 992px) {
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 15rem;
-        height: 100vh;
-    }
-
-    .nav-wrapper {
-        background-color: green;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    .brand-logo {
-        display: block;
-    }
-
-    #autoComplete {
-        background-color: darkgreen;
-        position: absolute;
-        top: 42%;
-        height: 10%;
-        width: 70%;
-    }
-
-    #nav-mobile {
-        position: absolute;
-        top: 10%;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
-
-    #nav-mobile li {
-        display: block;
-    }
-
-    #letter-links {
-        display: flex;
-        flex-flow: row wrap;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-
-    #letter-links p {
-        position: absolute;
-        top: -20%;        
-    }
-
-    .letter-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 11%;
-        margin: 1px;   
-    }
-
-} */
+.autocomplete input {
+    position: absolute;
+}

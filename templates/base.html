@@ -17,9 +17,9 @@
 
 <body>
 	<!-- Materialize navbar -->
-	<nav>
+	<nav class="nav-extended brown">
 		<div class="nav-wrapper">
-			<a href="{{url_for('index')}}" class="brand-logo">Googly</a>
+			<a href="{{url_for('index')}}" class="brand-logo center">Googly</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="{{url_for('index')}}">Home</a></li>
@@ -39,16 +39,22 @@
 				<li><a href="{{url_for('contribute')}}">Contribute</a></li>
 				{% endif %}
 			</ul>
-
-            <!-- <form id="searchbox">
-                <div class="input-field">
-                    <input id="search" type="search" value="Find word..." required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                    <input type="button" onclick="search_word()" />
-                </div>
-            </form> -->
 		</div>
+        <div class="nav-content">
+            <form action="{{url_for('find_words')}}" id="searchbox" method="POST">
+                <div id="searchbar" class="input-field">
+                    <i class="material-icons prefix">search</i>
+                    <input type="text" name="search" id="search" placeholder="Search word...">
+                </div>
+            </form>
+            <div id="letternav">
+                <ul id="letter-links">
+                {% for letter in letters %}
+                    <li><a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
 	</nav>
 	<!-- ./navbar -->
     

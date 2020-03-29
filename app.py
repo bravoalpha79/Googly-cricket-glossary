@@ -29,26 +29,21 @@ def display_letter(letter):
                             "letter": letter}).sort("term"), letters=alphabet)
 
 
-@app.route("/search/<word>", methods=["GET", "POST"])
-def search_word(word):
+@app.route("/find_words", methods=["GET", "POST"])
+def find_words():
     entries = mongo.db.entries
     all_entries = entries.find()
     all_words = [item["term"] for item in all_entries]
+
+    search_term = request.form["search"]
+
     matches = []
     
     for entry in all_words:
-        if entry[0:len(word)] == word:
+        if search_term and entry[0:len(search_term)] == search_term:
             matches.append(entry)
-    
-    found = {}
 
-    if matches:
-        for match in matches:
-            found[match] = ""
-    else:
-        found["No matching term found."] = ""
-
-    return jsonify(found)
+    return render_template("search.html", letters=alphabet, matches=matches)
 
 
 @app.route("/display_word/<word>")
