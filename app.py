@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash, jsonify
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask import jsonify
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -14,24 +14,26 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+DB = mongo.db
 
 
 @app.route("/")
 def index():
-    return render_template('index.html', letters=alphabet)
+    return render_template('index.html', letters=ALPHABET)
 
 
 @app.route("/display_letter/<letter>")
 def display_letter(letter):
     return render_template("letter.html",
-                           letter=mongo.db.entries.find({
-                            "letter": letter}).sort("term"), letters=alphabet)
+                           letter=DB.entries.find({
+                           "letter": letter}).sort("term"), 
+                           letters=ALPHABET)
 
 
 @app.route("/find_words", methods=["GET", "POST"])
 def find_words():
-    entries = mongo.db.entries
+    entries = DB.entries
     all_entries = entries.find()
     all_words = [item["term"] for item in all_entries]
 
@@ -43,27 +45,27 @@ def find_words():
         if search_term and entry[0:len(search_term)] == search_term:
             matches.append(entry)
 
-    return render_template("search.html", letters=alphabet, 
+    return render_template("search.html", letters=ALPHABET,
                            matches=matches, search_term=search_term)
 
 
 @app.route("/display_word/<word>")
 def display_word(word):
     return render_template("word.html",
-                           word=mongo.db.entries.find_one({
-                            "term": word}), letters=alphabet)
+                           word=DB.entries.find_one({
+                            "term": word}), letters=ALPHABET)
 
 
 @app.route("/add_word")
 def add_word():
-    return render_template("addword.html", letters=alphabet)
+    return render_template("addword.html", letters=ALPHABET)
 
 
 @app.route("/insert_word", methods=["GET", "POST"])
 def insert_word():
     word = request.form["term"].lower()
-    entries = mongo.db.entries
-    all_entries = mongo.db.entries.find()
+    entries = DB.entries
+    all_entries = DB.entries.find()
     all_words = [entry["term"] for entry in all_entries]
     glossary = [item.lower() for item in all_words]
 
@@ -90,14 +92,14 @@ def insert_word():
 
 @app.route("/edit_word/<word_id>")
 def edit_word(word_id):
-    word_to_edit = mongo.db.entries.find_one({"_id": ObjectId(word_id)})
+    word_to_edit = DB.entries.find_one({"_id": ObjectId(word_id)})
     return render_template("editword.html",
-                           word=word_to_edit, letters=alphabet)
+                           word=word_to_edit, letters=ALPHABET)
 
 
 @app.route("/update_word/<word_id>", methods=["GET", "POST"])
 def update_word(word_id):
-    entries = mongo.db.entries
+    entries = DB.entries
     term_to_update = request.form["term"].lower()
     same_term = entries.find_one({"term": term_to_update})
     
@@ -125,40 +127,40 @@ def update_word(word_id):
 
 @app.route("/delete_word/<word_id>")
 def delete_word(word_id):
-    entries = mongo.db.entries
+    entries = DB.entries
     entries.delete_one({"_id": ObjectId(word_id)})
     flash("Entry successfully deleted.")
-    return render_template("addword.html", letters=alphabet)
+    return render_template("addword.html", letters=ALPHABET)
 
 
 @app.route("/contribute", methods=["GET", "POST"])
 def contribute():
-    return render_template("contribute.html", letters=alphabet)
+    return render_template("contribute.html", letters=ALPHABET)
 
 
 @app.route("/authenticate_user", methods=["GET", "POST"])
 def authenticate_user():
-    contributors = mongo.db.contributors.find()
+    contributors = DB.contributors.find()
     passwords = [entry["passkey"] for entry in contributors]
 
     if request.method == "POST":
         if "username" in session:
             flash("You are already authorised as contributor")
-            return render_template("contribute.html", letters=alphabet)
+            return render_template("contribute.html", letters=ALPHABET)
         elif request.form["contributor"] in passwords:
             session["username"] = "contributor"
             flash("Contributor authorisation successful.")
-            return render_template("index.html", letters=alphabet)
+            return render_template("index.html", letters=ALPHABET)
         else:
             flash("Authorisation not recognised. Please try again.")
-            return render_template("contribute.html", letters=alphabet)
+            return render_template("contribute.html", letters=ALPHABET)
 
 
 @app.route("/logout")
 def logout():
     session.pop("username")
     flash("Successfully logged out.")
-    return render_template("index.html", letters=alphabet)
+    return render_template("index.html", letters=ALPHABET)
 
 
 if __name__ == "__main__":
