@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row" id="newword">
-    <div class="col s8 offset-s2">
+<div class="row content" id="newword">
+    <div class="col s8 offset-s2 text-frame">
         <h5>Add new entry</h5>
         <form class="add-word" action="{{url_for('insert_word')}}" method="POST">
             <div class="row">
@@ -18,9 +18,9 @@
                 </div>
             </div>
             <br>
-            <a id="add-meaning" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
+            <a id="add-meaning1" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
                     meaning</a>
-            <button class="btn waves-effect waves-light" type="submit">Add word</button>
+            <button id="addword" class="btn waves-effect waves-light" type="submit">Add word</button>
         </form>
     </div>
 </div>

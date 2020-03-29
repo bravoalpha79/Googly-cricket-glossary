@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="row wallpaper">
-    <div class="col s10 offset-s1">
+    <div class="col s12">
         <div class="text-frame">
             {% for word in letter %}
                 <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>

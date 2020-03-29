@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row" id="word-entry">
-    <div id="entry" class="col s8 offset-s3 m6 offset-m5 l4 offset-l5">
+<div class="row wallpaper" id="word-entry">
+    <div id="entry" class="col s8 offset-s2 m6 offset-m4 l4 offset-l4">
+        <div class="text-frame">
                 <h3>{{word.term}}</h3>
 
                 {% for meaning in word.meanings %}
@@ -11,9 +12,10 @@
 
                 {% if "username" in session %}
                 <!-- Materialize buttons -->
-                <a class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
-                <a class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
+                <a id="editentry" class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
+                <a id="deleteentry" class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
                 {% endif %}
+        </div>
     </div>
 </div>
 <!-- Materialize Modal Structure -->

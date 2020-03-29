@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row" id="contribute">
+<div class="content">
+    <div class="row contribute">
 		<form id="login" class="col s8 offset-s2 l4 offset-l1" action="{{url_for('authenticate_user')}}" method="POST">   
 			<div class="row">
-                <div class="input-field col s8">
+                <div class="col s8">
                     <p>Enter your contributor password to access contributor features.</p>
                 </div>
 				<div class="input-field col s8">
@@ -17,8 +18,8 @@
 			</div>
 		</form>
 		<form id="contactForm" class="col s8 offset-s2 l6" onsubmit="return sendMail(this);" method="POST">
-			<div class="row center-align">
-                <div class="input-field col s12">
+			<div class="row">
+                <div class="col s12">
 					<p>
                         Not a contributor yet? No problem! <br />
                         Send us a message and we'll email you a Contributor password.
@@ -43,8 +44,8 @@
                 <div class="input-field col s12">
 			        <button action="submit" class="waves-effect waves-light btn blue">Send</button>
                 </div>
+            </div>    
 		</form>
 	</div>
-
-
+</div>
 {% endblock %}

@@ -43,7 +43,8 @@ def find_words():
         if search_term and entry[0:len(search_term)] == search_term:
             matches.append(entry)
 
-    return render_template("search.html", letters=alphabet, matches=matches)
+    return render_template("search.html", letters=alphabet, 
+                           matches=matches, search_term=search_term)
 
 
 @app.route("/display_word/<word>")

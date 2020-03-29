@@ -1,42 +1,86 @@
+body {
+    font-size: 24px;
+}
+
+h4, 
 h5 {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
 }
 
+#addword form,
+#editword form {
+    margin: 1.5rem;
+}
+
+#login {
+    margin-top: 1rem;
+}
+
+#searchandindex {
+    width: 100%;
+    background-color: #9ccc65;
+    min-height: 18vh;
+}
+
+.content {
+    min-height: 69vh;
+    padding: 2rem;
+}
+
 #letternav {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
     width: 100%;
-    justify-content: center;
 }
 
 #searchbox {
-    margin-top: 1rem;
     display: flex;
-    flex-flow: row nowrap;
+    width: 100%;
+    flex-flow: row wrap;
     justify-content: center;
 }
 
-#searchbar {
-    width: 25%;
+#searchbox form {
+    width: 30%;
 }
+
+#searchbar input::placeholder {
+    color: #757575;
+}
+
+#ethos p {
+    margin: 0; 
+}
+
+
+.brand-logo {
+    margin-left: 0.5rem;
+}
+
+#nav-mobile li a {
+    font-size: 1.5rem;
+}
+
 
 .meaning {
     display: block;
 }
 
 .wallpaper {
-    background: url("stumps.jpg") top center no-repeat;
+    background: url("stumps.jpg") center center no-repeat;
     background-size: cover;
-    height: 80vh;
+    min-height: 90vh;
 }
 
 .text-frame {
-    background-color: rgba(161, 136, 127, 0.6);
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.5);
     margin-top: 2rem;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    align-content: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
 }
 
 #letter-links {
@@ -46,51 +90,63 @@ h5 {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
-    background-color: #a1887f;
+    background-color:#7cb342;
     align-items: center;
     width: 70%;
     line-height: 2.5rem;
 }
 
 .letter-link {
-    font-size: 1.5rem;
     display: inline-block;
+    font-weight: bold;
+    font-size: 28px;
+    padding: 0.7rem;
+    color: rgb(209, 97, 52);
 }
 
 .wordlink {
     font-size: 2rem;
     font-weight: bold;
     display: block;
+    text-decoration: none;
+    color: #000;
 }
 
-#entry a {
-    height: 1.5rem;
-    width: 4.7rem;
-    line-height: 1.6rem;
-    font-size: 0.8rem;
-    padding: 0 0.5rem;
-    margin: 0 0.3rem;
+.wordlink:hover {
+    color: #aaa;
 }
 
-.add-word button,
-.edit-word button, 
-.add-word a, 
-.edit-word a {
-    height: 1.5rem;
-    width: 4.7rem;
-    line-height: 1.6rem;
-    font-size: 0.8rem;
-    padding: 0 0.5rem;
-    margin: 1em 0.3rem 1rem;
+#addword,
+#updateword {
+    height: 2.5rem;
+    width: 9rem;
+    line-height: 1rem;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    margin: 1rem 0.3rem 1rem 0rem;
 }
 
-#add-meaning {
-    height: 1.5rem;
-    width: 10rem;
+#editentry, 
+#deleteentry,
+#cancelupdate {
+    height: 2.5rem;
+    width: 9rem;
+    line-height: 1.3rem;
+    font-size: 1.3rem;
+    padding: 0.6rem;
+    margin: 1rem 0.3rem 1rem 0rem;
+}
+
+#add-meaning1,
+#add-meaning2 {
+    height: 1.7rem;
+    width: 12rem;
     line-height: 1.6rem;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
     padding: 0 0.5rem;
     display: block;
+    color: #000;
 }
 
 #flashes {
@@ -101,9 +157,36 @@ h5 {
     width: 30vw;
 }
 
+.contribute {
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 90vh;
+}
+
+#contactForm p{
+    margin-top: 2.6rem;
+}
+
 #login p,
 #contactForm p {
     margin-bottom: 1.5rem;
 }
 
+footer {
+    background-color: #558b2f;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+    padding: 0.5rem;
+}
 
+footer p {
+    margin: 0 auto;
+} 
+
+footer a {
+    color: #006400;
+}
+
+footer a:hover {
+    color: #023f02;
+}
