@@ -181,10 +181,13 @@ def authenticate_user():
 @app.route("/logout")
 def logout():
     """Log out contributor."""
+    if "username" not in session:
+        return render_template("index.html", letters=ALPHABET)
     # session.pop method obtained from Stack Overflow
-    session.pop("username")
-    flash("Successfully logged out.")
-    return render_template("index.html", letters=ALPHABET)
+    else:
+        session.pop("username")
+        flash("Successfully logged out.")
+        return render_template("index.html", letters=ALPHABET)
 
 
 if __name__ == "__main__":
