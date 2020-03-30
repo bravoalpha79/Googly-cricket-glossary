@@ -6,5 +6,3 @@ __pycache__/
 Googly.code-workspace
 .vscode
 venv
-node_modules/
-.env
