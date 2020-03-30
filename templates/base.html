@@ -58,6 +58,7 @@
             </div>
             <div id="letternav">
                 <ul id="letter-links">
+                    <h6>Index</h6>
                     {% for letter in letters %}
                     <li><a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
                     {% endfor %}

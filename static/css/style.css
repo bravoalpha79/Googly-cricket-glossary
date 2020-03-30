@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900&display=swap');
 
 body {
     font-family: "Merriweather", sans-serif;
@@ -10,6 +10,16 @@ h5 {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
 }
+
+h5 strong {
+    font-weight: 900;
+}
+
+h6 {
+    margin-right: 0.5rem;
+}
+
+
 
 form {
     margin: 1rem;
@@ -27,7 +37,7 @@ form {
 #searchandindex {
     width: 100%;
     background-color: #9ccc65;
-    min-height: 18vh;
+    min-height: 15vh;
 }
 
 .content {
@@ -50,17 +60,23 @@ form {
 }
 
 #searchbox form {
-    width: 30%;
+    width: 45%;
 }
 
 #searchbar input::placeholder {
     color: #757575;
 }
 
-#ethos p {
-    margin: 0; 
-}
 
+#ethos p {
+    text-align: center;
+    color: #023f02;
+    text-shadow: 1px 1px 1px #757575;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    width: 65%;
+    margin: 0 auto;
+}
 
 .brand-logo {
     margin-left: 0.5rem;
@@ -87,17 +103,17 @@ form {
 }
 
 .wallpaper {
-    /* image form pixabay.com*/
-    background: url("../img/stumps.jpg") center center no-repeat;
+    /* image from pixabay.com*/
+    background: url("../img/stumps.jpg") 50% 30% no-repeat;
     background-size: cover;
-    min-height: 62vh;
+    min-height: 63vh;
 }
 
 .wallpaper2 {
     /* image from pexels.com */
     background: url("../img/cricket.jpg") top center no-repeat;
     background-size: cover;
-    min-height: 62vh;
+    min-height: 63vh;
 }
 
 .text-frame, 
@@ -107,7 +123,7 @@ form {
 
 .text-frame,
 .word-frame {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .text-frame {
@@ -156,7 +172,8 @@ form {
 }
 
 .wordlink:hover, 
-.letter-link:hover {
+.letter-link:hover,
+#ethos a:hover {
     color: rgb(126, 126, 126);
 }
 
@@ -251,6 +268,7 @@ footer p {
     margin: 0 auto;
 } 
 
+#ethos a,
 footer a {
     color: #006400;
 }
@@ -263,3 +281,25 @@ footer a:hover {
     text-align: center;
     padding-top: 0.5rem;
 }
+
+#welcome h1 {
+    text-align: center;
+    color: #023f02;
+    text-shadow: 2px 2px 1px #757575;
+    min-height: 40vh;
+
+    animation-name: welcome-zoom;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes welcome-zoom {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1.0);
+    }
+}
+

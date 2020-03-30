@@ -3,8 +3,15 @@
 {% block content %}
 <div class="wallpaper">
     <div class="content">
-        <div id="ethos" class="content col s12 center">
-            <p>Googly is an online glossary of cricket, open to contribution by registered users.<p>
+        <div id="welcome">
+            <h1>Welcome to Googly!</h1>
+        </div>
+        <div id="ethos">
+        {% if "username" in session %}
+            <p>Googly is an online glossary of Cricket, open to contribution by registered users.<p>
+        {% else %}
+            <p>Googly is an online glossary of Cricket, open to <a href="{{url_for('contribute')}}">contribution</a> by registered users.<p>
+        {% endif %}
         </div>
     </div>
 </div>
