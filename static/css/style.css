@@ -287,7 +287,11 @@ footer a:hover {
 }
 
 .modal-footer a:hover {
-    background-color: #aaa;
+    background-color: #aed581;
+}
+
+#deletion-modal div {
+    background-color: #c5e1a5;
 }
 
 #deletion-modal i {
@@ -298,6 +302,10 @@ footer a:hover {
 
 .modal-content {
     text-align: center;
+}
+
+#confirmdelete {
+    color: #ff0000;
 }
 
 /* ----- Footer ----- */

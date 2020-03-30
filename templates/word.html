@@ -29,7 +29,7 @@
 		<p><em>"{{word.term}}"</em></p>
 	</div>
 	<div class="modal-footer">
-		<a href="{{url_for('delete_word', word_id=word._id)}}"
+		<a id="confirmdelete" href="{{url_for('delete_word', word_id=word._id)}}"
 			class="modal-action waves-effect waves-green btn-flat">Delete</a>
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
 	</div>
