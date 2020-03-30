@@ -73,20 +73,26 @@ def add_word():
 @app.route("/insert_word", methods=["GET", "POST"])
 def insert_word():
     """Process addword form and insert word into DB."""
-    word = request.form["term"].lower()
+    word = request.form["term"]
     entries = DB.entries
     all_entries = DB.entries.find()
     all_words = [entry["term"] for entry in all_entries]
     glossary = [item.lower() for item in all_words]
 
     meanings = []
+
+    #check if first character is a letter    
+    if word[0].upper() not in ALPHABET:   
+        flash("A word must start with a letter.")
+        return redirect(url_for("add_word"))
+    
     # key-value iteration code obtained from W3Schools.com
     for k, v in request.form.items():
         if k != "term":
             if v != "":
                 meanings.append(v)
     # check if same word already exists in DB
-    if word in glossary:
+    if word.lower() in glossary:
         flash(("Entry '{}' already exists.").format(word))
         return redirect(url_for("add_word"))
     else:
