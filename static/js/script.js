@@ -29,14 +29,15 @@ function sendMail(contactForm) {
         function () {
             Materialize.toast(message, 4000);
             setTimeout(function() {
-                window.location.href = "";
+                // page reload method obtained from Stack Overflow
+                location = window.location.href;
             }, 2000)
         })
 
     return false;
 }
 
-//Custom function to insert additional meaning field into addword/editword templates
+//Custom function to insert additional Meaning field into addword/editword templates
 function addMeaning() {
     let meaningList = document.getElementsByClassName("meaning");
     let newMeaningNum = meaningList.length + 1;
