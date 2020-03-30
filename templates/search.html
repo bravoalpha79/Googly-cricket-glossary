@@ -7,7 +7,7 @@
             <div class="col s10 offset-s1">
                 <!-- Jinja length command obtained from Stack Overflow -->
                 {% if matches|length == 0 %}
-                    <h5>No results found for your search.</h5>
+                    <h5 class="noresult">No results found for your search.</h5>
                 {% else %}
                     <h5>Search results for <em>"{{search_term}}":</em></h5>
                     {% for match in matches %}

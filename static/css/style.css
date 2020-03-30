@@ -90,14 +90,14 @@ form {
     /* image form pixabay.com*/
     background: url("../img/stumps.jpg") center center no-repeat;
     background-size: cover;
-    min-height: 60vh;
+    min-height: 62vh;
 }
 
 .wallpaper2 {
     /* image from pexels.com */
     background: url("../img/cricket.jpg") top center no-repeat;
     background-size: cover;
-    min-height: 60vh;
+    min-height: 62vh;
 }
 
 .text-frame, 
@@ -257,4 +257,9 @@ footer a {
 
 footer a:hover {
     color: #023f02;
+}
+
+.noresult {
+    text-align: center;
+    padding-top: 0.5rem;
 }

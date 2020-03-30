@@ -6,7 +6,7 @@
         <div class="row text-frame">
             <div class="col s10 offset-s1">
                 {% if not index[0] %}
-                    <h5>No entry found.<h5>
+                    <h5 class="noresult">No entry found.<h5>
                 {% else %}
                     <h5>Index for <strong>{{letter}}</strong>:</h5>
                     {% for word in index %}
