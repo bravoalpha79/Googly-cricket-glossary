@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row wallpaper">
-    <div class="col s12">
-        <div class="text-frame">
-            {% if not letter[0] %}
-                <p>No entry found.<p>
-            {% else %}    
-                {% for word in letter %}
-                    <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
-                    <br>
-                {% endfor %}
-            {% endif %}
+<div class="wallpaper">
+    <div class="content">
+        <div class="row text-frame">
+            <div class="col s10 offset-s1">
+                {% if not index[0] %}
+                    <p>No entry found.<p>
+                {% else %}
+                    <h4>Index for <strong>{{letter}}</strong>:</h4>
+                    {% for word in index %}
+                        <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
+                        <br>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

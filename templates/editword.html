@@ -1,35 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row content" id="editword">
-        <div class="col s8 offset-s2 text-frame">
-            <h5>Edit entry "{{word.term}}"</h5>
-            <form class="edit-word" action="{{url_for('update_word', word_id=word._id)}}" method="POST">
-                <div class="row">
-                    <div class="input-field col s8">
-                        <input type="text" id="term" name="term" value="{{word.term}}" required />
-                        <label for="term">word</label>
-                    </div>
-                </div>
-                <div id="meanings">
-                {% for meaning in word.meanings %}
+<div class="wallpaper">
+    <div class="content">
+        <div class="row" id="editword">
+            <div class="col s8 offset-s2 text-frame">
+                <h5>Edit entry "{{word.term}}"</h5>
+                <form class="edit-word" action="{{url_for('update_word', word_id=word._id)}}" method="POST">
                     <div class="row">
-                        <div class="input-field col s12">
-                        {% if loop.index == 1 %}
-                            <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}" required>{{meaning}}</textarea>
-                        {% else %}
-                            <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}">{{meaning}}</textarea>
-                        {% endif %}
-                            <label for="meaning{{loop.index}}">meaning {{loop.index}}</label>
+                        <div class="input-field col s8">
+                            <input type="text" id="term" name="term" value="{{word.term}}" required />
+                            <label for="term">word</label>
                         </div>
                     </div>
-                {% endfor %}
-                </div>    
-                <br>
-                <a id="add-meaning2" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add meaning</a>
-                <button id="updateword" class="waves-effect waves-light btn" type="submit">Update</button>
-                <a id="cancelupdate" class="waves-effect waves-light btn grey" href="{{url_for('display_word', word=word.term)}}">Cancel</a>
-            </form>
+                    <div id="meanings">
+                    {% for meaning in word.meanings %}
+                        <div class="row">
+                            <div class="input-field col s12">
+                            {% if loop.index == 1 %}
+                                <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}" required>{{meaning}}</textarea>
+                            {% else %}
+                                <textarea class="meaning materialize-textarea" id="meaning{{loop.index}}" name="meaning{{loop.index}}">{{meaning}}</textarea>
+                            {% endif %}
+                                <label for="meaning{{loop.index}}">meaning {{loop.index}}</label>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>    
+                    <br>
+                    <a id="add-meaning2" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add meaning</a>
+                    <button id="updateword" class="waves-effect waves-light btn" type="submit">Update</button>
+                    <a id="cancelupdate" class="waves-effect waves-light btn grey" href="{{url_for('display_word', word=word.term)}}">Cancel</a>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 {% endblock %}

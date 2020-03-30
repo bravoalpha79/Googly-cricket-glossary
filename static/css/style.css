@@ -8,6 +8,10 @@ h5 {
     margin-bottom: 2rem;
 }
 
+form {
+    margin: 1rem;
+}
+
 #addword form,
 #editword form {
     margin: 1.5rem;
@@ -68,19 +72,32 @@ h5 {
     display: block;
 }
 
-.wallpaper {
-    background: url("stumps.jpg") center center no-repeat;
-    background-size: cover;
+.wrapper {
     min-height: 90vh;
 }
 
+.wallpaper {
+    /* image form pixabay.com*/
+    background: url("../img/stumps.jpg") center center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.wallpaper2 {
+    /* image from pexels.com */
+    background: url("../img/cricket.jpg") top center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.text-frame, 
+.contribute {
+    border-radius: 1rem;
+}
+
 .text-frame {
-    padding: 3rem;
     background-color: rgba(255, 255, 255, 0.5);
     margin-top: 2rem;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
 }
 
 #letter-links {
@@ -179,7 +196,6 @@ h5 {
 
 .contribute {
     background-color: rgba(255, 255, 255, 0.7);
-    height: 90vh;
 }
 
 #contactForm p{

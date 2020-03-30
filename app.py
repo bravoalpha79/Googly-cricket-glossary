@@ -30,8 +30,9 @@ def index():
 def display_letter(letter):
     """Display links to all words starting with selected letter."""
     return render_template("letter.html",
-                           letter=DB.entries.find({
+                           index=DB.entries.find({
                             "letter": letter}).sort("term"),
+                           letter=letter,
                            letters=ALPHABET)
 
 
