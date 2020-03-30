@@ -23,10 +23,10 @@ The languages, frameworks, libraries, and other tools used during this project:
 - JavaScript (ES6 to the best of my ability) for HTML DOM manipulation and for emailJS service processing;
 - Python3 for backend processing and application logic;
 - [Flask](https://github.com/pallets/flask) framework, including [Jinja](https://github.com/pallets/jinja) templating language, for advanced template routing and manipulation;
+- [Materialize](https://materializecss.com/) was used for responsive design, navigation bar, buttons, forms and modal implementation;    
 - [jQuery](https://jquery.com/) to enable the use of the Materialize library;
 - [MongoDB](https://www.mongodb.com/) for database provision;
 - [emailJS](https://www.emailjs.com/) to forward application user messages to an email address;
-- [Materialize](https://materializecss.com/) was used for responsive design, navigation bar, buttons, forms and modal implementation;    
 - Fonts were obtained from [Google Fonts](https://fonts.google.com/);
 - Icons were obtained from Materialize;
 - [Favicon.io](https://favicon.io/) was used for favicon creation;
@@ -60,12 +60,12 @@ The test procedure and results are detailed in a [separate document](testing.md)
 #### JavaScript
 - the emailJS sendMail function was copied and adapted from the Interactive FrontEnd Development lessons by Code Institute;
 - the Page Reload method was obtained from Stack Overflow;
-####Python/Jinja
+
+#### Python/Jinja
 - the session.pop() method and the Jinja version of the Python len() command were obtained from Stack Overflow;
 - the list comprehension code was obtained from [DataCamp](https://www.datacamp.com/);
 - the key-value iteration code was obtained from [W3Schools](https://www.w3schools.com/);
 
-https://freesvg.org/
 ### Media
 - Pictures were obtained from the following sources:
     - Wallpaper for all pages except Contribute: [Pixabay](https://pixabay.com/);
