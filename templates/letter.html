@@ -6,9 +6,9 @@
         <div class="row text-frame">
             <div class="col s10 offset-s1">
                 {% if not index[0] %}
-                    <p>No entry found.<p>
+                    <h5>No entry found.<h5>
                 {% else %}
-                    <h4>Index for <strong>{{letter}}</strong>:</h4>
+                    <h5>Index for <strong>{{letter}}</strong>:</h5>
                     {% for word in index %}
                         <a class="wordlink" href="{{url_for('display_word', word=word.term)}}">{{word.term}}</a>
                         <br>

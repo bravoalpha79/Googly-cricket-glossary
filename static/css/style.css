@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap');
+
 body {
+    font-family: "Merriweather", sans-serif;
     font-size: 24px;
 }
 
@@ -28,8 +31,8 @@ form {
 }
 
 .content {
-    min-height: 69vh;
     padding: 2rem;
+    height: 100%
 }
 
 #letternav {
@@ -63,6 +66,17 @@ form {
     margin-left: 0.5rem;
 }
 
+.brand-logo img {
+    height: 3rem;
+    width: 3rem;
+    margin-top: 0.5rem;
+}
+
+.brand-logo img:hover {
+    opacity: 70%;
+}
+
+
 #nav-mobile li a {
     font-size: 1.5rem;
 }
@@ -72,22 +86,18 @@ form {
     display: block;
 }
 
-.wrapper {
-    min-height: 90vh;
-}
-
 .wallpaper {
     /* image form pixabay.com*/
     background: url("../img/stumps.jpg") center center no-repeat;
     background-size: cover;
-    height: 100%;
+    min-height: 60vh;
 }
 
 .wallpaper2 {
     /* image from pexels.com */
     background: url("../img/cricket.jpg") top center no-repeat;
     background-size: cover;
-    height: 100%;
+    min-height: 60vh;
 }
 
 .text-frame, 
@@ -95,9 +105,22 @@ form {
     border-radius: 1rem;
 }
 
-.text-frame {
+.text-frame,
+.word-frame {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.text-frame {
     margin-top: 2rem;
+}
+
+.text-frame h5 {
+    margin-left: 1.5rem;
+}
+
+.word-frame {
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
 }
 
 #letter-links {
@@ -111,26 +134,30 @@ form {
     align-items: center;
     width: 70%;
     line-height: 2.5rem;
+    border-radius: 1rem;
 }
 
 .letter-link {
     display: inline-block;
+    font-family: "Merriweather", sans-serif;
     font-weight: bold;
     font-size: 28px;
-    padding: 0.7rem;
-    color: rgb(209, 97, 52);
+    color: #023f02;
+    padding: 0.8rem;
 }
 
 .wordlink {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     display: block;
     text-decoration: none;
-    color: #000;
+    color: #023f02;
+    width: 20%;
 }
 
-.wordlink:hover {
-    color: #aaa;
+.wordlink:hover, 
+.letter-link:hover {
+    color: rgb(126, 126, 126);
 }
 
 #addword,
@@ -138,7 +165,7 @@ form {
     height: 2.5rem;
     width: 9rem;
     line-height: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 0.5rem;
     margin: 1rem 0.3rem 1rem 0rem;
 }
@@ -162,9 +189,14 @@ form {
     line-height: 1.6rem;
     font-size: 0.8rem;
     margin-bottom: 1rem;
-    padding: 0 0.5rem;
+    padding: 0.1rem 0.5rem;
     display: block;
     color: #000;
+}
+
+#sendmessage {
+    display: block;
+    margin: 0 auto;
 }
 
 #flashes {
@@ -195,7 +227,7 @@ form {
 }
 
 .contribute {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color:rgb(220, 237, 200, 0.8);
 }
 
 #contactForm p{

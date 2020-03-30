@@ -3,9 +3,9 @@
 {% block content %}
 <div class="wallpaper">
     <div class="content">
-        <div class="row" id="word-entry">
-            <div id="entry" class="col s8 offset-s2 m6 offset-m4 l4 offset-l4">
-                <div class="text-frame">
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
+                <div class="word-frame">
                     <h3>{{word.term}}</h3>
                     {% for meaning in word.meanings %}
                         <p>{{loop.index}}. {{meaning}}.</p>
