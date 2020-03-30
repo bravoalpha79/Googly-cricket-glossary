@@ -322,6 +322,12 @@ footer p {
     margin: 0 auto;
 } 
 
-
+/* code obtained from Stack Overflow */
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 60%;
+  left: 40%;  
+}
 
 

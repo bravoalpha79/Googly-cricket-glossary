@@ -56,7 +56,7 @@ The test procedure and results are detailed in a [separate document](testing.md)
 ### Code
 #### HTML and CSS
 - The home page heading animation code was copied and adapted from the CSS Fundamentals lessons by [Code Institute](https://courses.codeinstitute.net/);
-- the ::placeholder targeting method was obtained from [Stack Overflow](https://stackoverflow.com/);
+- the ::placeholder targeting method and the code for Materialize toast positioning were obtained from [Stack Overflow](https://stackoverflow.com/);
 #### JavaScript
 - the emailJS sendMail function was copied and adapted from the Interactive FrontEnd Development lessons by Code Institute;
 - the Page Reload method was obtained from Stack Overflow;
