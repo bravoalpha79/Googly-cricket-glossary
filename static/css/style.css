@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,400,700,900&display=swap');
 
+
+/* ----- General styles ----- */
 body {
     font-family: "Merriweather", sans-serif;
     font-size: 24px;
@@ -19,11 +21,11 @@ h6 {
     margin-right: 0.5rem;
 }
 
-
-
 form {
     margin: 1rem;
 }
+
+/** ----- Forms ----- */
 
 #addword form,
 #editword form {
@@ -32,24 +34,6 @@ form {
 
 #login {
     margin-top: 1rem;
-}
-
-#searchandindex {
-    width: 100%;
-    background-color: #9ccc65;
-    min-height: 15vh;
-}
-
-.content {
-    padding: 2rem;
-    height: 100%
-}
-
-#letternav {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    width: 100%;
 }
 
 #searchbox {
@@ -67,16 +51,7 @@ form {
     color: #757575;
 }
 
-
-#ethos p {
-    text-align: center;
-    color: #023f02;
-    text-shadow: 1px 1px 1px #757575;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
-    width: 65%;
-    margin: 0 auto;
-}
+/* ----- Navbar ----- */
 
 .brand-logo {
     margin-left: 0.5rem;
@@ -97,60 +72,24 @@ form {
     font-size: 1.5rem;
 }
 
+/* ----- Buttons and anchors ----- */
 
-.meaning {
-    display: block;
+#searchandindex {
+    width: 100%;
+    background-color: #9ccc65;
+    min-height: 15vh;
 }
 
-.wallpaper {
-    /* image from pixabay.com*/
-    background: url("../img/stumps.jpg") 50% 30% no-repeat;
-    background-size: cover;
-    min-height: 63vh;
+.content {
+    padding: 2rem;
+    height: 100%
 }
 
-.wallpaper2 {
-    /* image from pexels.com */
-    background: url("../img/cricket.jpg") top center no-repeat;
-    background-size: cover;
-    min-height: 63vh;
-}
-
-.text-frame, 
-.contribute {
-    border-radius: 1rem;
-}
-
-.text-frame,
-.word-frame {
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-.text-frame {
-    margin-top: 2rem;
-}
-
-.text-frame h5 {
-    margin-left: 1.5rem;
-}
-
-.word-frame {
-    padding: 1.5rem 2rem;
-    border-radius: 1rem;
-}
-
-#letter-links {
+#letternav {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color:#7cb342;
-    align-items: center;
-    width: 70%;
-    line-height: 2.5rem;
-    border-radius: 1rem;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .letter-link {
@@ -216,9 +155,127 @@ form {
     margin: 0 auto;
 }
 
+#ethos a,
+footer a {
+    color: #006400;
+}
+
+footer a:hover {
+    color: #023f02;
+}
+
+/* ----- Frames and formating ----- */
+
+#ethos p {
+    text-align: center;
+    color: #023f02;
+    text-shadow: 1px 1px 1px #757575;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.meaning {
+    display: block;
+}
+
+.wallpaper {
+    /* image from pixabay.com*/
+    background: url("../img/stumps.jpg") 50% 30% no-repeat;
+    background-size: cover;
+    min-height: 63vh;
+}
+
+.wallpaper2 {
+    /* image from pexels.com */
+    background: url("../img/cricket.jpg") top center no-repeat;
+    background-size: cover;
+    min-height: 63vh;
+}
+
+.text-frame, 
+.contribute {
+    border-radius: 1rem;
+}
+
+.text-frame,
+.word-frame {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.text-frame {
+    margin-top: 2rem;
+}
+
+.text-frame h5 {
+    margin-left: 1.5rem;
+}
+
+.word-frame {
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+}
+
+#letter-links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color:#7cb342;
+    align-items: center;
+    width: 70%;
+    line-height: 2.5rem;
+    border-radius: 1rem;
+}
+
 #flashes {
     display: none;
 }
+
+.contribute {
+    background-color:rgb(220, 237, 200, 0.8);
+}
+
+#contactForm p{
+    margin-top: 2.6rem;
+}
+
+#login p,
+#contactForm p {
+    margin-bottom: 1.5rem;
+}
+
+.noresult {
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+/* animation code obtained from course module */
+#welcome h1 {
+    text-align: center;
+    color: #023f02;
+    text-shadow: 2px 2px 1px #757575;
+    min-height: 40vh;
+
+    animation-name: welcome-zoom;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes welcome-zoom {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1.0);
+    }
+}
+
+/* ----- Modal ----- */
 
 .modal {
     width: 30vw;
@@ -243,18 +300,7 @@ form {
     text-align: center;
 }
 
-.contribute {
-    background-color:rgb(220, 237, 200, 0.8);
-}
-
-#contactForm p{
-    margin-top: 2.6rem;
-}
-
-#login p,
-#contactForm p {
-    margin-bottom: 1.5rem;
-}
+/* ----- Footer ----- */
 
 footer {
     background-color: #558b2f;
@@ -268,38 +314,6 @@ footer p {
     margin: 0 auto;
 } 
 
-#ethos a,
-footer a {
-    color: #006400;
-}
 
-footer a:hover {
-    color: #023f02;
-}
 
-.noresult {
-    text-align: center;
-    padding-top: 0.5rem;
-}
-
-#welcome h1 {
-    text-align: center;
-    color: #023f02;
-    text-shadow: 2px 2px 1px #757575;
-    min-height: 40vh;
-
-    animation-name: welcome-zoom;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes welcome-zoom {
-    from {
-        transform: scale(0.5);
-    }
-
-    to {
-        transform: scale(1.0);
-    }
-}
 
