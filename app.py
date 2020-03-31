@@ -136,6 +136,7 @@ def update_word(word_id):
         entries.update_one({"_id": ObjectId(word_id)},
                            {"$set": {
                                 "term": term_to_update,
+                                "letter": term_to_update[0].upper(),
                                 "meanings": meanings
                            }})
     flash("Word successfully updated.")

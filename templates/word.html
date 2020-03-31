@@ -11,7 +11,7 @@
                         <p>{{word.meanings[0]}}</p>
                     {% else %}
                         {% for meaning in word.meanings %}
-                            <p>{{loop.index}}. {{meaning}}</p>
+                            <p>{{loop.index}}.&nbsp;&nbsp;{{meaning}}</p>
                         {% endfor %}
                     {% endif %}
 
