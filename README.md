@@ -153,7 +153,9 @@ The test procedure and results are detailed in a [separate document](testing.md)
     - Wallpaper for all pages except Contribute: [Pixabay](https://pixabay.com/);
     - Contribute page wallpaper: [Pexels](https://www.pexels.com/);
     - Favicon picture: [Free SVG](https://freesvg.org/);
-    - Navigation bar "brand logo": [Wikipedia](https://www.wikipedia.org/).
+    - Navigation bar "brand logo": [Wikipedia](https://www.wikipedia.org/);   
+    
+- Terms and their definitions were obtained from [Wikipedia](https://en.wikipedia.org/wiki/Glossary_of_cricket_terms).
 
 ### Acknowledgements
 

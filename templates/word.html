@@ -7,9 +7,13 @@
             <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
                 <div class="word-frame">
                     <h3>{{word.term}}</h3>
-                    {% for meaning in word.meanings %}
-                        <p>{{loop.index}}. {{meaning}}.</p>
-                    {% endfor %}
+                    {% if word.meanings|length == 1 %}
+                        <p>{{word.meanings[0]}}</p>
+                    {% else %}
+                        {% for meaning in word.meanings %}
+                            <p>{{loop.index}}. {{meaning}}</p>
+                        {% endfor %}
+                    {% endif %}
 
                     {% if "username" in session %}
                     <!-- Materialize buttons -->
