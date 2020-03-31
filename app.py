@@ -122,6 +122,12 @@ def update_word(word_id):
     same_term = entries.find_one({"term": term_to_update})
 
     meanings = []
+
+    #check if first character is a letter    
+    if term_to_update[0].upper() not in ALPHABET:   
+        flash("A word must start with a letter.")
+        return redirect(url_for("edit_word",
+                                word_id=word_id))
     # key-value iteration code obtained from W3Schools.com
     for k, v in request.form.items():
         if k != "term":
