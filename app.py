@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, \
+    session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
@@ -81,11 +82,11 @@ def insert_word():
 
     meanings = []
 
-    #check if first character is a letter    
-    if word[0].upper() not in ALPHABET:   
+    # check if first character is a letter
+    if word[0].upper() not in ALPHABET:
         flash("A word must start with a letter.")
         return redirect(url_for("add_word"))
-    
+
     # key-value iteration code obtained from W3Schools.com
     for k, v in request.form.items():
         if k != "term":
@@ -123,8 +124,8 @@ def update_word(word_id):
 
     meanings = []
 
-    #check if first character is a letter    
-    if term_to_update[0].upper() not in ALPHABET:   
+    # check if first character is a letter
+    if term_to_update[0].upper() not in ALPHABET:
         flash("A word must start with a letter.")
         return redirect(url_for("edit_word",
                                 word_id=word_id))

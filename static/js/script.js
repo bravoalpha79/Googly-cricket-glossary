@@ -31,8 +31,8 @@ function sendMail(contactForm) {
             setTimeout(function() {
                 // page reload method obtained from Stack Overflow
                 location = window.location.href;
-            }, 2000)
-        })
+            }, 2000);
+        });
 
     return false;
 }
@@ -44,15 +44,15 @@ function addMeaning() {
 
     let newMeaningWrapper = document.createElement("div");
     let newMeaningTextarea = document.createElement("textarea");
-    let newMeaningLabel = document.createElement("label")
+    let newMeaningLabel = document.createElement("label");
 
-    newMeaningWrapper.setAttribute("class", "input-field col s12")
+    newMeaningWrapper.setAttribute("class", "input-field col s12");
 
     newMeaningTextarea.id = `meaning${newMeaningNum}`;
     newMeaningTextarea.setAttribute("class", "meaning materialize-textarea");
     newMeaningTextarea.setAttribute("name", `meaning${newMeaningNum}`);
 
-    newMeaningLabel.setAttribute("for", `meaning${newMeaningNum}`)
+    newMeaningLabel.setAttribute("for", `meaning${newMeaningNum}`);
     newMeaningLabel.innerHTML = `meaning${newMeaningNum}`;
     
     newMeaningWrapper.appendChild(newMeaningTextarea);
