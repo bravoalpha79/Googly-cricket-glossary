@@ -3,323 +3,384 @@
 
 /* ----- General styles ----- */
 body {
-    font-family: "Merriweather", sans-serif;
-    font-size: 24px;
+  font-family: "Merriweather", sans-serif;
+  font-size: 24px;
 }
 
 h4, 
 h5 {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 h5 strong {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 h6 {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 form {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 /** ----- Forms ----- */
 
 #addword form,
 #editword form {
-    margin: 1.5rem;
+  margin: 1.5rem;
 }
 
 #login {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 #searchbox {
-    display: flex;
-    width: 100%;
-    flex-flow: row wrap;
-    justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+      justify-content: center;
 }
 
 #searchbox form {
-    width: 45%;
+  width: 45%;
 }
 
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+#searchbar input::-webkit-input-placeholder {
+  color: #757575;
+}
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+#searchbar input::-moz-placeholder {
+  color: #757575;
+}
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+#searchbar input:-ms-input-placeholder {
+  color: #757575;
+}
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+#searchbar input::-ms-input-placeholder {
+  color: #757575;
+}
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 #searchbar input::placeholder {
-    color: #757575;
+  color: #757575;
 }
 
 /* ----- Navbar ----- */
 
 .brand-logo {
-    margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .brand-logo img {
-    height: 3rem;
-    width: 3rem;
-    margin-top: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  margin-top: 0.5rem;
 }
 
 .brand-logo img:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 
 #nav-mobile li a {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 /* ----- Buttons and anchors ----- */
 
 #searchandindex {
-    width: 100%;
-    background-color: #9ccc65;
-    min-height: 15vh;
+  width: 100%;
+  background-color: #9ccc65;
+  min-height: 15vh;
 }
 
 .content {
-    padding: 2rem;
-    height: 100%
+  padding: 2rem;
+  height: 100%
 }
 
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 #letternav {
-    display: flex;
-    flex-flow: row wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: distribute;
     justify-content: space-around;
-    width: 100%;
+  width: 100%;
 }
 
 .letter-link {
-    display: inline-block;
-    font-family: "Merriweather", sans-serif;
-    font-weight: bold;
-    font-size: 28px;
-    color: #023f02;
-    padding: 0.8rem;
+  display: inline-block;
+  font-family: "Merriweather", sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+  color: #023f02;
+  padding: 0.8rem;
 }
 
 .wordlink {
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: block;
-    text-decoration: none;
-    color: #023f02;
-    width: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  color: #023f02;
+  width: 50%;
 }
 
 .wordlink:hover, 
 .letter-link:hover,
 #ethos a:hover {
-    color: rgb(126, 126, 126);
+  color: rgb(126, 126, 126);
 }
 
 #addword,
 #updateword {
-    height: 2.5rem;
-    width: 9rem;
-    line-height: 1rem;
-    font-size: 1.3rem;
-    padding: 0.5rem;
-    margin: 1rem 0.3rem 1rem 0rem;
+  height: 2.5rem;
+  width: 9rem;
+  line-height: 1rem;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  margin: 1rem 0.3rem 1rem 0rem;
 }
 
 #editentry, 
 #deleteentry,
 #canceladd,
 #cancelupdate {
-    height: 2.5rem;
-    width: 9rem;
-    line-height: 1.3rem;
-    font-size: 1.3rem;
-    padding: 0.6rem;
-    margin: 1rem 0.3rem 1rem 0rem;
+  height: 2.5rem;
+  width: 9rem;
+  line-height: 1.3rem;
+  font-size: 1.3rem;
+  padding: 0.6rem;
+  margin: 1rem 0.3rem 1rem 0rem;
 }
 
 #add-meaning1,
 #add-meaning2 {
-    height: 1.7rem;
-    width: 12rem;
-    line-height: 1.6rem;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    padding: 0.1rem 0.5rem;
-    display: block;
-    color: #000;
+  height: 1.7rem;
+  width: 12rem;
+  line-height: 1.6rem;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.1rem 0.5rem;
+  display: block;
+  color: #000;
 }
 
 #sendmessage {
-    display: block;
-    margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
 #ethos a,
 footer a {
-    color: #006400;
+  color: #006400;
 }
 
 footer a:hover {
-    color: #023f02;
+  color: #023f02;
 }
 
 /* ----- Frames and formating ----- */
 
 #ethos p {
-    text-align: center;
-    color: #023f02;
-    text-shadow: 1px 1px 1px #757575;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 1rem;
-    width: 65%;
-    margin: 0 auto;
+  text-align: center;
+  color: #023f02;
+  text-shadow: 1px 1px 1px #757575;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  width: 65%;
+  margin: 0 auto;
 }
 
 .meaning {
-    display: block;
+  display: block;
 }
 
 .wallpaper {
-    /* image from pixabay.com*/
-    background: url("../img/stumps.jpg") 50% 30% no-repeat;
-    background-size: cover;
-    min-height: 63vh;
+  /* image from pixabay.com*/
+  background: url("../img/stumps.jpg") 50% 30% no-repeat;
+  background-size: cover;
+  min-height: 63vh;
 }
 
 .wallpaper2 {
-    /* image from pexels.com */
-    background: url("../img/cricket.jpg") top center no-repeat;
-    background-size: cover;
-    min-height: 63vh;
+  /* image from pexels.com */
+  background: url("../img/cricket.jpg") top center no-repeat;
+  background-size: cover;
+  min-height: 63vh;
 }
 
 .text-frame, 
 .contribute {
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .text-frame,
 .word-frame {
-    background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .text-frame {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .text-frame h5 {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .word-frame {
-    padding: 1.5rem 2rem;
-    border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
 }
 
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 #letter-links {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color:#7cb342;
-    align-items: center;
-    width: 70%;
-    line-height: 2.5rem;
-    border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+      justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color:#7cb342;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+      align-items: center;
+  width: 70%;
+  line-height: 2.5rem;
+  border-radius: 1rem;
 }
 
 #flashes {
-    display: none;
+  display: none;
 }
 
 .contribute {
-    background-color:rgb(220, 237, 200, 0.8);
+  background-color:rgb(220, 237, 200, 0.8);
 }
 
 #contactForm p{
-    margin-top: 2.6rem;
+  margin-top: 2.6rem;
 }
 
 #login p,
 #contactForm p {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .noresult {
-    text-align: center;
-    padding-top: 0.5rem;
+  text-align: center;
+  padding-top: 0.5rem;
 }
 
 /* animation code obtained from course module */
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
 #welcome h1 {
-    text-align: center;
-    color: #023f02;
-    text-shadow: 2px 2px 1px #757575;
-    min-height: 40vh;
+  text-align: center;
+  color: #023f02;
+  text-shadow: 2px 2px 1px #757575;
+  min-height: 40vh;
 
-    animation-name: welcome-zoom;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
+  -webkit-animation-name: welcome-zoom;
+
+      animation-name: welcome-zoom;
+  -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
 }
-
-@keyframes welcome-zoom {
-    from {
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+@-webkit-keyframes welcome-zoom {
+  from {
+    -webkit-transform: scale(0.5);
         transform: scale(0.5);
-    }
+  }
 
-    to {
+  to {
+    -webkit-transform: scale(1.0);
         transform: scale(1.0);
-    }
+  }
+}
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+@keyframes welcome-zoom {
+  from {
+    -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+  }
+
+  to {
+    -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+  }
 }
 
 /* ----- Modal ----- */
 
 .modal {
-    width: 30vw;
+  width: 30vw;
 }
 
 .modal-footer a {
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .modal-footer a:hover {
-    background-color: #aed581;
+  background-color: #aed581;
 }
 
 #deletion-modal div {
-    background-color: #c5e1a5;
+  background-color: #c5e1a5;
 }
 
 #deletion-modal i {
-    font-size: 5rem;
-    color: #ff0000;
-    margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: #ff0000;
+  margin-bottom: 1.5rem;
 }
 
 .modal-content {
-    text-align: center;
+  text-align: center;
 }
 
 #confirmdelete {
-    color: #ff0000;
+  color: #ff0000;
 }
 
 /* ----- Footer ----- */
 
 footer {
-    background-color: #558b2f;
-    font-size: 1.2rem;
-    margin: 0;
-    text-align: center;
-    padding: 0.5rem;
+  background-color: #558b2f;
+  font-size: 1.2rem;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 footer p {
-    margin: 0 auto;
+  margin: 0 auto;
 } 
 
 /* code obtained from Stack Overflow */
@@ -329,5 +390,4 @@ footer p {
   bottom: 60%;
   left: 40%;  
 }
-
 
