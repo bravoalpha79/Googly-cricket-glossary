@@ -4,14 +4,14 @@ Googly is a web-based glossary of the game of Cricket, open to contributions by 
 
 ## UX
 
-The site is intended for experts, players or fans of the game of Cricket or any other users interested in the terminology of the game.
-Visitors have the option of searching for a specific term, or browsing the index of words by letter. 
+The site is intended for experts, players or fans of the game of Cricket or any other users interested in the terminology of the game.  
+Visitors have the option of searching for a specific term, or browsing the index of words by letter.   
 Owner-authorised users ("contributors") have the additional options of adding new entries, editing/updating existing entries and deleting entries.
  
 ### User stories
 Given the intended purpose of the glossary, the following user stories have been identified:
 
-1. As a user I want to have a searchbox so I can quickly find the desired word (or set of words beginning with the input character(s)).
+1. As a user I want to have a search box so I can quickly find the desired word (or set of words beginning with the input character(s)).
 2. As a user, I want to have a letter index so I can browse through the glossary entries by letter.
 3. As a user, I want to be able to display the selected word and its meaning(s).
 4. As a user, I want to have a message form so I can contact the site owner.
@@ -21,7 +21,7 @@ Given the intended purpose of the glossary, the following user stories have been
 8. As a user-contributor, I want to be able to delete an existing entry.
 9. As a user-contributor, I want to have a confirmation/warning before deleting an entry.
 10. As a user-contributor, I want to have a check when entering/modifying a word so I do not accidentally create a duplicated entry.
-11. As a user-contrributor, I want to have a check when entering/modifying a word so I do not accidentally create an invalid/empty entry.
+11. As a user-contributor, I want to have a check when entering/modifying a word so I do not accidentally create an invalid/empty entry.
 12. As site owner, I want to have the user messages (sent via the contact form) sent to my specified email address.
 13. As site owner, I want the user messages to contain their name and email address so I can contact them back.
 14. As site owner, I want to have a Contributor authorisation feature that prevents non-authorised users from modifying site content. 
@@ -43,7 +43,7 @@ The initial design idea was to implement the navigation as a sidebar on desktop 
 However, this presented problems with consistent placing and responsiveness of the search box and the letter index, as well as leaving too much of empty screen real estate on desktop resolutions.   
 
 Thus the final design (in cooperation with the project mentor) was to implement: 
-- a Materialize top navbar on all screen resolutions, responsive only with regards to its display mode;
+- a [Materialize](https://materializecss.com/) top navbar on all screen resolutions, responsive only with regards to its display mode;
 - a custom bottom "searchbar" (just above the Footer) integrating the Search box and the Letter Index.
 
 These two features would be a part of the "base" HTML template and would be displayed across all pages/templates, whereas all other content (search results, entries, forms) would be displayed in the screen real estate between the navbar and the searchbar.  
@@ -69,16 +69,16 @@ Therefore no advanced security was implemented for this feature (as this is outs
 If the Contributor authorisation is successful, the UI displays additional options to the user.
 
 #### Contact form
-For non-registered users, a contact form is available which uses emailJs to send the user's message to the site owner. This is intended rimarily as a means to obtain Contributor credentials from the site owner, but can also be used for general questions.  
+For non-registered users, a contact form is available which uses [emailJS](https://www.emailjs.com/) to send the user's message to the site owner. This is intended primarily as a means to obtain Contributor credentials from the site owner, but can also be used for general questions.  
 
 _Note: with the implemented UI layout, the contact form is not available to users logged in as Contributor. It is assumed that, if a user is a Contributor, the "first contact" with the owner has already been made, and subsequent messaging will be performed through personal email directly._ 
 
 #### Create-Read-Update-Delete (CRUD)
 
-The Read function is implemented via a simple centered box displaying the word/term and its meanings. (For Contributors, this is complemented by an Edit button and a Delete button.)   
+The Read function is implemented via a simple centred box displaying the word/term and its meanings. (For Contributors, this is complemented by an Edit button and a Delete button.)   
 The Create function (Contributors only) uses u Materialize form. Initial fields (Term and Meaning 1) are mandatory, while the user has the option of dynamically adding multiple meanings through an additional "Add meaning button".   
 The Update function (Contributors only) also uses a Materialize form, with the same rules as for Create.   
-The Delete function (Contributors only) is implemented via the Delete button below an existing entry. The user is promted by a distinct warning (modal) to confirm or cancel the deletion. 
+The Delete function (Contributors only) is implemented via the Delete button below an existing entry. The user is prompted by a distinct warning (modal) to confirm or cancel the deletion. 
 
 Implemented checks: 
 - the first character of the entry's term (word) must be a letter;
