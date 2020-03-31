@@ -101,6 +101,8 @@ def insert_word():
                 "term": word,
                 "letter": word[0].upper(),
                 "meanings": meanings
+            }, { 
+                writeConcern: { w: "majority", wtimeout: 5000 }
             })
         flash(("Entry '{}' successfully added.").format(word))
         return redirect(url_for("display_word", word=word))
@@ -138,7 +140,9 @@ def update_word(word_id):
                                 "term": term_to_update,
                                 "letter": term_to_update[0].upper(),
                                 "meanings": meanings
-                           }})
+                           }}, {
+                               writeConcern: { w: "majority", wtimeout: 5000 }
+                           })
     flash("Word successfully updated.")
     return redirect(url_for("display_word",
                             word=term_to_update))
