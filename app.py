@@ -73,7 +73,7 @@ def add_word():
 @app.route("/insert_word", methods=["GET", "POST"])
 def insert_word():
     """Process addword form and insert word into DB."""
-    word = request.form["term"]
+    word = request.form["term"].lower()
     entries = DB.entries
     all_entries = DB.entries.find()
     all_words = [entry["term"] for entry in all_entries]
