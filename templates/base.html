@@ -58,7 +58,7 @@
             </div>
             <div id="letternav">
                 <ul id="letter-links">
-                    <h6>Index</h6>
+                    <li id="index-title">Index</li>
                     {% for letter in letters %}
                     <li><a class="letter-link" href="{{url_for('display_letter', letter=letter)}}">{{letter}}</a></li>
                     {% endfor %}
@@ -85,8 +85,8 @@
 	<!-- Materialize - Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <!-- emailJS initialisation -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-	<script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+	<script>
 		(function(){
             emailjs.init("user_jYwaBLy9blrZ9N1FYxk8c");
         })();

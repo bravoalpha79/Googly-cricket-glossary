@@ -114,6 +114,7 @@ The languages, frameworks, libraries, and other tools used during this project:
 - [Favicon.io](https://favicon.io/) was used for favicon creation;
 - [W3C Markup Validation Service](https://validator.w3.org/) was used to validate HTML and CSS code;
 - [JSHint](https://jshint.com/) was used to validate JavaScript code;
+- [PEP8 online](http://pep8online.com/) to validate Python code;
 - [W3schools.com Color Converter](https://www.w3schools.com/colors/colors_converter.asp) was used to convert colours between default, HEX and RGB for CSS coding purposes;
 - [Autoprefixer CSS online](https://autoprefixer.github.io/) was used for correct vendor prefixing of CSS styles where required;
 - [Convertio](https://convertio.co/eps-jpg/) was used for image conversion from SVG to JPEG;
