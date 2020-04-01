@@ -127,7 +127,23 @@ The languages, frameworks, libraries, and other tools used during this project:
 
 ## Testing
 
-The test procedure and results are detailed in a [separate document](testing.md).
+1. Automatic testing was not conducted.
+
+2. All code (HTML, CSS, JavaScript, Python) was validated using online validators:
+
+- [W3C Markup Validation Service](https://validator.w3.org/) for HTML and CSS;
+- [JSHint](https://jshint.com/) for JavaScript;
+- [PEP8 online](http://pep8online.com/) for Python code.
+
+No issues were identified except where related to the use of Jinja in HTML, which the W3C Validator raises as errors.
+
+3. Extensive testing was performed during development - basically any significant feature addition was immediately tested. Several bugs were identified in the process and corrected:
+- When a term's first letter was changed during an update, the entry still kept the "letter" property of the original term (before the update), causing the updated word to appear in the wrong letter index.   
+This was fixed by adding the "letter" property to the list of properties to be amended by the update.
+- Following a logout, if a refresh was clicked (accidentally or intentionally), a Werkzeug error was displayed.   
+Fixed by adding a condition to simply render index.html if username is not in session and logout is invoked.
+
+4. User stories have been tested individually. 
 
 
 ## Deployment
