@@ -162,17 +162,17 @@ The following procedure was used for deployment on Heroku:
 
     Under "App information", copy the Heroku git URL.
 
-8. In your project workspace CLI, in the root directory, enter  
+8. In Gitpod workspace CLI, in the project's root directory, enter  
 
     `heroku login`   
 
     Follow the instructions to login.
 
-    Enter the command copied form Heroku App Dashboard: 
+    Enter 
 
     `git remote add heroku <Heroku Git URL>`
 
-    where `<Heroku Git URL>` is the Heroku git URL copied from the Heroku App Dashboard in Settings.
+    where `<Heroku Git URL>` is the Heroku git URL copied from the Heroku App Dashboard in Settings (step 7 above).
 
     Finally, enter
 
@@ -180,45 +180,46 @@ The following procedure was used for deployment on Heroku:
 
     to push the contents of your local Git repository to the newly created Heroku remote repository.
 
-10.  In the workspace CLI, enter 
+9.  Still in the Gitpod workspace CLI, enter 
 
-    `heroku ps:scale web=1`
+     `heroku ps:scale web=1`
+        
+     to start the Heroku web process.
 
-    to start the Heroku web process.
+10. Log into your [MongoDB Atlas](https://account.mongodb.com/account/login) account.   
 
-11. Log into your [MongoDB Atlas](https://account.mongodb.com/account/login) account.   
-In the dashboard, select your database Cluster, then click the Connect button.
+    In the dashboard, select your database Cluster, then click the Connect button.
 
     In the pop-up, select the option "Connect your application". 
 
     Under the tab "Connection string only", copy the connection string.
 
 
-12. On Heroku App Dashboard, in the Settings tab, click the button "Reveal Config vars".
+11. On Heroku App Dashboard, in the Settings tab, click the button "Reveal Config vars".
 
     Using the Add button, add the following keys and their corresponding values:
 
-    key: IP  
-    value: 0.0.0.0
+    key: `IP`  
+    value: `0.0.0.0`
 
-    key: PORT   
-    value: 5000   
+    key: `PORT`   
+    value: `5000`   
     
-    key: MONGO_URI   
+    key: `MONGO_URI`   
     value:   
     - paste the string copied from MongoDB,
     - inside the pasted string, replace `<password>` with your database access password (**NOT** your MongoDB login password), and
     - replace `test` with the name of the database used for your project.
 
-    key: SECRET_KEY
-    value: value of SECRET_KEY as entered in the project's env.py file. 
+    key: `SECRET_KEY`   
+    value: value of SECRET_KEY as entered in the project's env.py file, **without quotes** . 
 
-13. In the top right corner of the Dashboard, Click on the More button.
+12. In the top right corner of the Heroku App Dashboard, click on the More button.
 
     From the dropdown menu, select "Restart all dynos". Confirm Restart when prompted.
 
 
-14. Click on Open app. The App is now deployed.
+13. Click on Open app. The App is now deployed.
 
 
 ## Credits
@@ -243,7 +244,7 @@ In the dashboard, select your database Cluster, then click the Connect button.
     - Favicon picture: [Free SVG](https://freesvg.org/);
     - Navigation bar "brand logo": [Wikipedia](https://www.wikipedia.org/);   
     
-- Terms and their definitions were obtained from [Wikipedia](https://en.wikipedia.org/wiki/Glossary_of_cricket_terms).
+- The existing glossary terms and their definitions were obtained from [Wikipedia](https://en.wikipedia.org/wiki/Glossary_of_cricket_terms).
 
 ### Acknowledgements
 
