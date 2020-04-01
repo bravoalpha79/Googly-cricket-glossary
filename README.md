@@ -427,5 +427,5 @@ I used Gitpod for development, so the following steps will be specific to Gitpod
 
 ### Acknowledgements
 
-
+I would like to thank my mentor Narender and the whole merry bunch on CI Slack, for helping me not only through this project but also through this whole period of world-wide difficulties. I wouldn't have been able to pull through without your friendship and support! THANK YOU ALL! :) 
 
