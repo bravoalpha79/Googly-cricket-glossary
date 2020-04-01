@@ -161,8 +161,12 @@ Subsequent testing of both the insert and update functions tested OK.
 
     Following the above mentioned corrections, all user stories have been tested as successfully fulfilled.
 
-Testing on a mobile device revealed the following issue:
-- if the first letter of a search term is uppercase, the search returns no results even though entries starting with the lowercase letter exist.
+5. Testing on a mobile device (Sony Xperia XZ2 compact) revealed the following issue:
+    - _If the first letter of a search term is uppercase, the search returns no results even though entries starting with the lowercase letter exist._   
+    Fixed by forcing the search form input to lowercase before initiating search.   
+    Python code revalidated OK.   
+    Subsequent testing of the search function OK.   
+
 
 
 ## Deployment
