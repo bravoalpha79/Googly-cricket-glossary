@@ -2,41 +2,41 @@
 
 {% block content %}
 <div class="wallpaper">
-    <div class="content">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
-                <div class="word-frame">
-                    <h3>{{word.term}}</h3>
-                    {% if word.meanings|length == 1 %}
-                        <p>{{word.meanings[0]}}</p>
-                    {% else %}
-                        {% for meaning in word.meanings %}
-                            <p>{{loop.index}}.&nbsp;&nbsp;{{meaning}}</p>
-                        {% endfor %}
-                    {% endif %}
+  <div class="content">
+    <div class="row">
+      <div class="col s10 offset-s1 m8 offset-m2 l6 offset-l3">
+         <div class="word-frame">
+            <h3>{{word.term}}</h3>
+            {% if word.meanings|length == 1 %}
+              <p>{{word.meanings[0]}}</p>
+            {% else %}
+              {% for meaning in word.meanings %}
+              <p>{{loop.index}}.&nbsp;&nbsp;{{meaning}}</p>
+              {% endfor %}
+            {% endif %}
 
-                    {% if "username" in session %}
-                    <!-- Materialize buttons -->
-                    <a id="editentry" class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
-                    <a id="deleteentry" class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
-                    {% endif %}
-                </div>
-            </div>
+            {% if "username" in session %}
+            <!-- Materialize buttons -->
+            <a id="editentry" class="waves-effect waves-light btn blue" href="{{url_for('edit_word', word_id=word._id)}}">Edit</a>
+            <a id="deleteentry" class="waves-effect waves-light btn red modal-trigger" href="#deletion-modal">Delete</a>
+            {% endif %}
+          </div>
         </div>
-    </div>
+      </div>
+  </div>
 </div>        
 <!-- Materialize Modal Structure -->
 <div id="deletion-modal" class="modal">
-	<div class="modal-content">
-        <i class="material-icons">warning</i>
-		<h4>Delete entry?</h4>
-		<p><em>"{{word.term}}"</em></p>
-	</div>
-	<div class="modal-footer">
-		<a id="confirmdelete" href="{{url_for('delete_word', word_id=word._id)}}"
-			class="modal-action waves-effect waves-green btn-flat">Delete</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-	</div>
+  <div class="modal-content">
+    <i class="material-icons">warning</i>
+	<h4>Delete entry?</h4>
+	<p><em>"{{word.term}}"</em></p>
+  </div>
+  <div class="modal-footer">
+	<a id="confirmdelete" href="{{url_for('delete_word', word_id=word._id)}}"
+		class="modal-action waves-effect waves-green btn-flat">Delete</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+  </div>
 </div>
 
 {% endblock %}

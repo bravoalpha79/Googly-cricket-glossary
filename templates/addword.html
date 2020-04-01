@@ -2,31 +2,31 @@
 
 {% block content %}
 <div class="wallpaper">
-    <div class="content">
-        <div class="row" id="newword">
-            <div class="col s8 offset-s2 text-frame">
-                <h5>Add new entry</h5>
-                <form class="add-word" action="{{url_for('insert_word')}}" method="POST">
-                    <div class="row">
-                        <div class="input-field col s8">
-                            <input type="text" id="term" name="term" required/>
-                            <label for="term">word</label>
-                        </div>
-                        <div id="meanings">
-                            <div class="input-field col s12">
-                                <textarea class="meaning materialize-textarea" id="meaning1" name="meaning1" required></textarea>
-                                <label for="meaning1">meaning</label>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <a id="add-meaning1" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
-                            meaning</a>
-                    <button id="addword" class="btn waves-effect waves-light" type="submit">Add word</button>
-                    <a id="canceladd" class="waves-effect waves-light btn grey" href="{{url_for('index')}}">Cancel</a>
-                </form>
+  <div class="content">
+    <div class="row" id="newword">
+      <div class="col s8 offset-s2 text-frame">
+        <h5>Add new entry</h5>
+        <form class="add-word" action="{{url_for('insert_word')}}" method="POST">
+          <div class="row">
+            <div class="input-field col s8">
+              <input type="text" id="term" name="term" required/>
+              <label for="term">word</label>
             </div>
-        </div>
+            <div id="meanings">
+              <div class="input-field col s12">
+                <textarea class="meaning materialize-textarea" id="meaning1" name="meaning1" required></textarea>
+                <label for="meaning1">meaning</label>
+              </div>
+            </div>
+          </div>
+          <br>
+          <a id="add-meaning1" class="waves-effect waves-light btn cyan lighten-3" onclick="addMeaning()">Add
+              meaning</a>
+          <button id="addword" class="btn waves-effect waves-light" type="submit">Add word</button>
+          <a id="canceladd" class="waves-effect waves-light btn grey" href="{{url_for('index')}}">Cancel</a>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
