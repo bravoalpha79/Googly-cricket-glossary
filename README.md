@@ -131,6 +131,94 @@ The test procedure and results are detailed in a [separate document](testing.md)
 
 ## Deployment
 
+**The final version of the application has been deployed online at:**   
+**https://googly-cricket-glossary.herokuapp.com/**
+
+The following procedure was used for deployment on Heroku:
+
+1. In Gitpod CLI, in the root directory of the project, run 
+
+   `pip3 freeze --local > requirements txt`
+
+   to create a `requirements.txt` file containing project dependencies.
+
+2. In Gitpod project workspace root directory, create a new file called Procfile (capital "P" is important!).  
+   Open the Procfile. Inside the file, enter:  
+
+   `web: python3 app.py`
+
+    Save the file.
+
+3. **Make sure you do a Git commit after creating the requirements.txt and the Procfile.**
+
+4. On [Heroku](https://www.heroku.com/), sign in using your username and password.
+
+5. On Heroku Dashboard, press the "New" button, then select "Create new app".
+
+6. Enter the app name (note: name must be unique!) and select your region.   
+   Press "Create app".
+
+7. On Heroku App Dashboard, select the Settings tab.
+
+    Under "App information", copy the Heroku git URL.
+
+8. In your project workspace CLI, in the root directory, enter  
+
+    `heroku login`   
+
+    Follow the instructions to login.
+
+    Enter the command copied form Heroku App Dashboard: 
+
+    `git remote add heroku <Heroku Git URL>`
+
+    where `<Heroku Git URL>` is the Heroku git URL copied from the Heroku App Dashboard in Settings.
+
+    Finally, enter
+
+    `git push heroku master`
+
+    to push the contents of your local Git repository to the newly created Heroku remote repository.
+
+10.  In the workspace CLI, enter 
+
+    `heroku ps:scale web=1`
+
+    to start the Heroku web process.
+
+11. Log into your [MongoDB Atlas](https://account.mongodb.com/account/login) account.   
+In the dashboard, select your database Cluster, then click the Connect button.
+
+    In the pop-up, select the option "Connect your application". 
+
+    Under the tab "Connection string only", copy the connection string.
+
+
+12. On Heroku App Dashboard, in the Settings tab, click the button "Reveal Config vars".
+
+    Using the Add button, add the following keys and their corresponding values:
+
+    key: IP  
+    value: 0.0.0.0
+
+    key: PORT   
+    value: 5000   
+    
+    key: MONGO_URI   
+    value:   
+    - paste the string copied from MongoDB,
+    - inside the pasted string, replace `<password>` with your database access password (**NOT** your MongoDB login password), and
+    - replace `test` with the name of the database used for your project.
+
+    key: SECRET_KEY
+    value: value of SECRET_KEY as entered in the project's env.py file. 
+
+13. In the top right corner of the Dashboard, Click on the More button.
+
+    From the dropdown menu, select "Restart all dynos". Confirm Restart when prompted.
+
+
+14. Click on Open app. The App is now deployed.
 
 
 ## Credits
