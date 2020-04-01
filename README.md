@@ -151,30 +151,55 @@ During the tests, the following issue has been identified:
 
         Fixed by adding the "required" attribute to the form textarea tag in the contribute.html template. 
 HTML code revalidated OK.   
-Subsequent testing of the form tested OK.
+Subsequent testing of the form tested OK. 
+
+        **Issue resolved.**
    
    - _The toast message when an invalid character is entered is misleading - national characters are also letters, but they are not accepted._   
 
         Fixed by modifying the corresponding flash message text.   
 Python code revalidated OK.   
-Subsequent testing of both the insert and update functions tested OK.
+Subsequent testing of both the insert and update functions tested OK.   
+
+        **Issue resolved.**
 
     Following the above mentioned corrections, all user stories have been tested as successfully fulfilled.
 
-5. Testing on a mobile device (Sony Xperia XZ2 compact) revealed the following issues:
-    - _If the first letter of a search term is uppercase, the search returns no results even though entries starting with the lowercase letter exist._   
+5. Mozilla Firefox was used as secondary testing browser.  
+
+    All user stories have been tested successfully. No issue found.
+
+6. Testing on Microsoft Edge revealed one issue:
+    - _On contribute.html, the text frame is not displayed (making the form difficult to read against the wallpaper background)._   
+
+        Given that:
+        - the issue is not present in other forms on the same browser,
+        - the issue is not present in any form on other tested browsers,
+        - the relevant code has run through AutoPrefixer and no prefixes were returned, and 
+        - the issue investigation is currently not possible due to lack of time,
+
+        this issue will need to be investigated and resolved in a future version.
+
+7. Testing on a mobile device (Sony Xperia XZ2 compact) revealed the following issues:
+    - _If the first letter of a search term is uppercase, the search returns no results even though entries starting with the same but lowercase letter exist._   
     
         Fixed by forcing the search form input to lowercase before initiating search.   
     Python code revalidated OK.   
     Subsequent testing of the search function OK.   
+    **Issue resolved.**
    - _The word display (word frame) and the add word / entry word forms are too narrow on a mobile screen._  
         
-        Fixed by removing the Materialize offset and extending the column width to 12 on small screens.
-        Materialize column widths for medium and large screens have also been adjusted (addword.html and editword.html).   
+        Fixed by removing the Materialize offset and extending the column width to 12 on small screens.   
+        Materialize column widths for medium and large screens have also been adjusted (templates addword.html and editword.html).   
         HMTL code revalidated OK.  
-        Subsequent display testing OK.
+        Subsequent display testing OK.   
+        **Issue resolved.**
 
+8. An observation was raised during the tests:
+    - _The search function (via the search box) returns all terms starting with the entered characters, but it does not sort them alphabetically._   
+    Due to lack of time, a solution/improvement will be implemented in a future version.
 
+Following the aforementioned tests and their findings, **the site is considered ready for official deployment**. 
 
 ## Deployment
 
