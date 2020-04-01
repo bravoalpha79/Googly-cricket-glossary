@@ -144,7 +144,7 @@ This was fixed by adding the "letter" property to the list of properties to be a
     - Following a logout, if a refresh was clicked (accidentally or intentionally), a Werkzeug error was displayed.   
 Fixed by adding a condition to simply render index.html if username is not in session and logout route is invoked.
 
-4. User stories have been tested individually. 
+4. User stories have been tested individually, using Google Chrome as the primary testing browser. 
 During the tests, the following issue has been identified:
 
    - _Message can be sent with an empty message text field._   
