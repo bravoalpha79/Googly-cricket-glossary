@@ -84,7 +84,7 @@ def insert_word():
 
     # check if first character is a letter
     if word[0].upper() not in ALPHABET:
-        flash("A word must start with a letter.")
+        flash("A word must start with a letter (English only).")
         return redirect(url_for("add_word"))
 
     # key-value iteration code obtained from W3Schools.com
@@ -126,7 +126,7 @@ def update_word(word_id):
 
     # check if first character is a letter
     if term_to_update[0].upper() not in ALPHABET:
-        flash("A word must start with a letter.")
+        flash("A word must start with a letter (English only).")
         return redirect(url_for("edit_word",
                                 word_id=word_id))
     # key-value iteration code obtained from W3Schools.com

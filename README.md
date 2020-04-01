@@ -144,6 +144,13 @@ This was fixed by adding the "letter" property to the list of properties to be a
 Fixed by adding a condition to simply render index.html if username is not in session and logout is invoked.
 
 4. User stories have been tested individually. 
+During the tests, the following issue has been identified:
+- Message can be sent with an empty message text field.   
+Fixed by adding the "required" attribute to the form textarea tag in the contribute.html template. 
+HTML code revalidated OK.
+Subsequent testing of the form tested OK.
+- The toast message when an invalid character is entered is misleading - national characters are also letters, but they are not accepted.
+Fixed by modifying the corresponding flash message text.
 
 
 ## Deployment
