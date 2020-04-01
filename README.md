@@ -209,7 +209,7 @@ The following procedure was used for deployment on Heroku:
     value:   
     - paste the string copied from MongoDB,
     - inside the pasted string, replace `<password>` with your database access password (**NOT** your MongoDB login password), and
-    - replace `test` with the name of the database used for your project.
+    - replace `test` with the name (case-sensitive!) of the database used for your project.
 
     key: `SECRET_KEY`   
     value: value of SECRET_KEY as entered in the project's env.py file, **without quotes** . 
@@ -220,6 +220,113 @@ The following procedure was used for deployment on Heroku:
 
 
 13. Click on Open app. The App is now deployed.
+
+### Local development
+
+If you want to run this project locally, you will need to follow these steps.
+
+1. Clone or download this repository.
+
+2. Upload the repository into your IDE of choice.  
+
+I used Gitpod for development, so the following steps will be specific to Gitpod. You will need to adjust them depending on your IDE.
+
+3. In your workspace CLI, run
+
+   `pip3 install -r requirements.txt`
+
+   to install the project-required dependencies.
+
+4. In the root directory of your project, create an env.py file. 
+
+   Don't forget to add the env.py file to your .gitignore file.
+
+5. In MongoDB Atlas, create a new database for the project.
+
+    The database needs to have the following attributes:
+
+    - collection "contributors"
+    - collection "entries"
+
+    In collection "contributors":
+    - document property: "passkey" -> String
+
+    In collection entries:
+    - document property: "term" -> String
+    - document property: "letter" -> String
+    - document property: "meanings" -> Array of Strings
+
+6. Once you have created the database, go back to the Cluster View and click "Connect".
+    In the resulting pop-up, click on "Connect your application".
+    Under the tab "Connection String Only", copy the connection string.
+
+7. Back in your IDE, open the env.py file.
+
+   At the top of the file, add 
+
+   `import os`
+
+   Then, add 
+
+   `os.environ["MONGO_URI"] = "<mongo_uri>"`
+    
+    where `<mongo_uri>` is the pasted MongoDB connection string copied in step 6 above.
+
+   In the pasted `<mongo_uri>` string:
+   - replace < password > with your database access password (**NOT** your MongoDB login password), and
+   - replace "test" with the name (case-sensitive!) of your project database. 
+
+   Finally, add
+
+   `os.environ["SECRET_KEY"] = "<your_secret_key>"`
+
+    where `<your_secret_key>` is a combination of letters, numbers and characters of your choice. This is used to enable the Flask flash messaging feature.
+
+    Save the file.
+
+8. Log into [emailJS](https://www.emailjs.com/) or create an account if you don't already have one.
+
+   Add a mail service of your choice, but make sure that the "service ID" field is named "gmail" (case-sensitive!).
+
+9. In emailJS, create a new email template, named "googly". Open the template to edit it.
+
+   In the Subject field, enter a subject title of your choice.
+
+   In the Content field, enter the following: 
+ 
+   ```
+   {{contributor_request}}
+ 
+
+   {{from_name}} can be contacted at {{from_email}}
+   ```
+
+   Finally, in the right-hand details column, enter the following:
+
+   "To email" field: email of your choice  
+  
+   "From name (optional)" field: `{{from_name}}`
+
+   "From email (optional)" field: `{{from_email}}`
+
+   Save the template.
+
+10. In emailJS dashboard, click on Account. Select the "API keys" tab.
+
+    Copy the User ID string **only**.
+
+
+11. In your IDE, open the base.html file. Scroll down to the scripts.
+
+    In the `emailjs.init` function, replace the string between the quotes with your ID User string copied from emailJS (keep the quotes!).
+
+    Save the file.
+
+12. Run the app.py file and open it in your browser.   
+    The application is now running locally.
+
+
+  
 
 
 ## Credits
