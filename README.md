@@ -161,11 +161,18 @@ Subsequent testing of both the insert and update functions tested OK.
 
     Following the above mentioned corrections, all user stories have been tested as successfully fulfilled.
 
-5. Testing on a mobile device (Sony Xperia XZ2 compact) revealed the following issue:
+5. Testing on a mobile device (Sony Xperia XZ2 compact) revealed the following issues:
     - _If the first letter of a search term is uppercase, the search returns no results even though entries starting with the lowercase letter exist._   
-    Fixed by forcing the search form input to lowercase before initiating search.   
+    
+        Fixed by forcing the search form input to lowercase before initiating search.   
     Python code revalidated OK.   
     Subsequent testing of the search function OK.   
+   - _The word display (word frame) and the add word / entry word forms are too narrow on a mobile screen._  
+        
+        Fixed by removing the Materialize offset and extending the column width to 12 on small screens.
+        Materialize column widths for medium and large screens have also been adjusted (addword.html and editword.html).   
+        HMTL code revalidated OK.  
+        Subsequent display testing OK.
 
 
 
