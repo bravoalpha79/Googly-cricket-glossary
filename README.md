@@ -206,6 +206,8 @@ Following the aforementioned tests and their findings, **the site is considered 
 **The final version of the application has been deployed online at:**   
 **https://googly-cricket-glossary.herokuapp.com/**
 
+The deployed version of the site is identical to the version stored in this repository.
+
 The following procedure was used for deployment on Heroku:
 
 1. In Gitpod CLI, in the root directory of the project, run 
