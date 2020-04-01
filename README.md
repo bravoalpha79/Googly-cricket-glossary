@@ -138,19 +138,31 @@ The languages, frameworks, libraries, and other tools used during this project:
 No issues were identified except where related to the use of Jinja in HTML, which the W3C Validator raises as errors.
 
 3. Extensive testing was performed during development - basically any significant feature addition was immediately tested. Several bugs were identified in the process and corrected:
-- When a term's first letter was changed during an update, the entry still kept the "letter" property of the original term (before the update), causing the updated word to appear in the wrong letter index.   
+    - When a term's first letter was changed during an update, the entry still kept the "letter" property of the original term (before the update), causing the updated word to appear in the wrong letter index.   
 This was fixed by adding the "letter" property to the list of properties to be amended by the update.
-- Following a logout, if a refresh was clicked (accidentally or intentionally), a Werkzeug error was displayed.   
-Fixed by adding a condition to simply render index.html if username is not in session and logout is invoked.
+
+    - Following a logout, if a refresh was clicked (accidentally or intentionally), a Werkzeug error was displayed.   
+Fixed by adding a condition to simply render index.html if username is not in session and logout route is invoked.
 
 4. User stories have been tested individually. 
 During the tests, the following issue has been identified:
-- Message can be sent with an empty message text field.   
-Fixed by adding the "required" attribute to the form textarea tag in the contribute.html template. 
-HTML code revalidated OK.
+
+   - _Message can be sent with an empty message text field._   
+
+        Fixed by adding the "required" attribute to the form textarea tag in the contribute.html template. 
+HTML code revalidated OK.   
 Subsequent testing of the form tested OK.
-- The toast message when an invalid character is entered is misleading - national characters are also letters, but they are not accepted.
-Fixed by modifying the corresponding flash message text.
+   
+   - _The toast message when an invalid character is entered is misleading - national characters are also letters, but they are not accepted._   
+
+        Fixed by modifying the corresponding flash message text.   
+Python code revalidated OK.   
+Subsequent testing of both the insert and update functions tested OK.
+
+    Following the above mentioned corrections, all user stories have been tested as successfully fulfilled.
+
+Testing on a mobile device revealed the following issue:
+- if the first letter of a search term is uppercase, the search returns no results even though entries starting with the lowercase letter exist.
 
 
 ## Deployment

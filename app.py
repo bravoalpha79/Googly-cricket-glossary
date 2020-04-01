@@ -45,7 +45,7 @@ def find_words():
     # list comprehension method obtained from datacamp.com
     all_words = [item["term"] for item in all_entries]
 
-    search_term = request.form["search"]
+    search_term = request.form["search"].lower()
 
     matches = []
 
