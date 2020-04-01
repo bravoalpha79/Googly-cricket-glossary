@@ -76,7 +76,7 @@ _Note: with the implemented UI layout, the contact form is not available to user
 #### Create-Read-Update-Delete (CRUD)
 
 The Read function is implemented via a simple centred box displaying the word/term and its meanings. (For Contributors, this is complemented by an Edit button and a Delete button.)   
-The Create function (Contributors only) uses u Materialize form. Initial fields (Term and Meaning 1) are mandatory, while the user has the option of dynamically adding multiple meanings through an additional "Add meaning button".   
+The Create function (Contributors only) uses a Materialize form. Initial fields (Term and Meaning 1) are mandatory, while the user has the option of dynamically adding multiple meanings through an additional "Add meaning" button.   
 The Update function (Contributors only) also uses a Materialize form, with the same rules as for Create.   
 The Delete function (Contributors only) is implemented via the Delete button below an existing entry. The user is prompted by a distinct warning (modal) to confirm or cancel the deletion. 
 
